@@ -27,43 +27,43 @@
             <div class="editor-field">
                 <%: Html.DropDownList("tiposPaquete", ViewData["tiposPaquete"] as SelectList)%>
             </div>
-            <div class="editor-label">
+         <div class="editor-label">
                 <%: Html.LabelFor(model => model.Nombre) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Nombre) %>
+                <%: Html.TextBoxFor(model => model.Nombre, new { @style = "width:300px" }) %>
                 <%: Html.ValidationMessageFor(model => model.Nombre) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.FechaInicio) %>
+                Fecha de Inicio
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FechaInicio) %>
+                <%: Html.TextBoxFor(model => model.FechaInicio, new { @style = "width:100px" }) %>
                 <%: Html.ValidationMessageFor(model => model.FechaInicio) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.FechaFin) %>
+                Fecha de Fin
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FechaFin) %>
+                <%: Html.TextBoxFor(model => model.FechaFin, new { @style = "width:100px" }) %>
                 <%: Html.ValidationMessageFor(model => model.FechaFin) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.HoraInicio) %>
+                Hora de Inicio
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.HoraInicio) %>
+                <%: Html.TextBoxFor(model => model.HoraInicio, new { @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.HoraInicio) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.HoraFin) %>
+                Hora de Fin
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.HoraFin) %>
+                <%: Html.TextBoxFor(model => model.HoraFin, new { @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.HoraFin) %>
             </div>
             
@@ -71,7 +71,7 @@
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
+                <%: Html.TextAreaFor(model => model.Descripcion, new { @style = "width:300px;height:80px" })%>
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
@@ -79,15 +79,15 @@
                 <%: Html.LabelFor(model => model.Lugares) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Lugares) %>
+                <%: Html.TextAreaFor(model => model.Lugares, new { @style = "width:300px;height:80px" })%>
                 <%: Html.ValidationMessageFor(model => model.Lugares) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.InformacionAdicional) %>
+                Información Adicional
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.InformacionAdicional) %>
+                <%: Html.TextAreaFor(model => model.InformacionAdicional, new { @style = "width:300px;height:80px" })%>
                 <%: Html.ValidationMessageFor(model => model.InformacionAdicional) %>
             </div>
             
