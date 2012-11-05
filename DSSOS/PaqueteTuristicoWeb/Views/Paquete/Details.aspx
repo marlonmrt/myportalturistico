@@ -11,6 +11,7 @@
     <fieldset>
         <legend>Campos</legend>
         
+
         <div class="display-label">Codigo</div>
         <div class="display-field"><%: Model.Codigo %></div>
         
