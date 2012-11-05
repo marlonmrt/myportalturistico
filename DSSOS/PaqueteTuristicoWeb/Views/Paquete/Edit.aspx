@@ -12,6 +12,7 @@
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
+
             <legend>Campos</legend>
             
             <div class="editor-label">
