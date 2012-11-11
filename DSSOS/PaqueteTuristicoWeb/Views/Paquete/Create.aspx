@@ -16,11 +16,11 @@
             <legend>Campos</legend>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.Codigo) %>
+                Código del Paquete
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Codigo) %>
-                <%: Html.ValidationMessageFor(model => model.Codigo) %>
+                <%: Html.TextBoxFor(model => model.CodPaquete) %>
+                <%: Html.ValidationMessageFor(model => model.CodPaquete) %>
             </div>
             <div class="editor-label">
                Tipo de Paquete
@@ -30,11 +30,11 @@
             </div>
 
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.Nombre) %>
+               Nombre del Paquete
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Nombre, new { @style = "width:300px" }) %>
-                <%: Html.ValidationMessageFor(model => model.Nombre) %>
+                <%: Html.TextBoxFor(model => model.NombrePaquete, new { @style = "width:300px" })%>
+                <%: Html.ValidationMessageFor(model => model.NombrePaquete)%>
             </div>
             
             <div class="editor-label">
@@ -100,6 +100,29 @@
                 <%: Html.TextBoxFor(model => model.Precio, new { @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.Precio)%>
             </div>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.Cupos) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.Cupos, new { @style = "width:100px" })%>
+                <%: Html.ValidationMessageFor(model => model.Cupos)%>
+            </div>
+
+             <div class="editor-label">
+                <%: Html.LabelFor(model => model.Registrados) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.Registrados, new { @style = "width:100px" })%>
+                <%: Html.ValidationMessageFor(model => model.Registrados)%>
+            </div>
+            <div class="editor-label">
+              Agente
+            </div>
+            <div class="editor-field">
+                <%: Html.DropDownList("agentes", ViewData["agentes"] as SelectList)%>
+            </div>
+
             <p>
                 <input type="submit" value="Crear Paquete" />
             </p>

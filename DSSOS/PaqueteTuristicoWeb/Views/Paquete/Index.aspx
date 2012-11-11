@@ -12,32 +12,32 @@
     <% foreach (var item in Model) { %>
 
     <tr>
-       <td><strong>Código de Paquete</strong></td><td><%: item.CodPaquete %></td><td>Tipo de Excursión</td><td><%: item.TipoPaquete.CodTipoPaquete %> - <%: item.TipoPaquete.NombreTipoPaquete %></td>
+       <td style="width: 144px"><strong>Código de Paquete</strong></td><td><%: item.CodPaquete %></td><td><strong>Tipo de Excursión</strong></td><td><%: item.TipoPaquete.CodTipoPaquete %> - <%: item.TipoPaquete.NombreTipoPaquete %></td>
     </tr>
      <tr>
-       <td><strong>Nombre del Paquete</strong></td><td colspan="3"><%: item.NombrePaquete %></td>
+       <td style="width: 144px"><strong>Nombre del Paquete</strong></td><td colspan="3"><%: item.NombrePaquete %></td>
     </tr>  
     <tr>
-       <td><strong>Fecha de Inicio</strong></td><td> <%: item.FechaInicio %></td><td><strong>Fecha de Fin</strong></td><td> <%: item.FechaFin %></td>
+       <td style="width: 144px"><strong>Fecha de Inicio</strong></td><td> <%: item.FechaInicio %></td><td><strong>Fecha de Fin</strong></td><td> <%: item.FechaFin %></td>
     </tr>
     <tr>
-       <td><strong>Hora de Inicio</strong></td><td><%: item.HoraInicio %></td><td><strong>Hora de Fin</strong></td><td><%: item.HoraFin %></td>
+       <td style="width: 144px"><strong>Hora de Inicio</strong></td><td><%: item.HoraInicio %></td><td><strong>Hora de Fin</strong></td><td><%: item.HoraFin %></td>
     </tr>
     <tr>
-       <td><strong>Descripcion</strong></td><td colspan="3"><%: item.Descripcion %></td>
+       <td style="width: 144px"><strong>Descripcion</strong></td><td colspan="3"><%: item.Descripcion %></td>
     </tr>
      <tr>
-       <td><strong>Lugares</strong></td><td colspan="3"><%: item.Lugares %></td>
+       <td style="width: 144px"><strong>Lugares</strong></td><td colspan="3"><%: item.Lugares %></td>
     </tr>
     <tr>
-    <td><strong>Información Adicional</strong></td><td colspan="3"><%: item.InformacionAdicional %></td>
+    <td style="width: 144px"><strong>Información Adicional</strong></td><td colspan="3"><%: item.InformacionAdicional %></td>
     </tr>
 
      <tr>
-       <td><strong>Precio</strong></td><td ><%: item.Precio %></td><td><strong>Cupos Disponibles</strong></td><td> <%: item.Cupos - item.Registrados %></td>
+       <td style="width: 144px"><strong>Precio</strong></td><td ><%: item.Precio %></td><td><strong>Cupos Disponibles</strong></td><td> <%: item.Cupos - item.Registrados %></td>
     </tr>
      <tr>
-       <td><strong>Agente</strong></td><td colspan="3"><%: item.Agente.RazonSocial %></td>
+       <td style="width: 144px"><strong>Agente</strong></td><td colspan="3"><%: item.Agente.RazonSocial %></td>
     </tr>
     <tr>
        <td colspan="4"> <%: Html.ActionLink("Editar", "Edit", new { id=item.CodPaquete }) %> |

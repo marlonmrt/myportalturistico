@@ -145,7 +145,7 @@ namespace PaqueteTuristicoWeb.Controllers
         
         // ****************************************************************************************
 
-        private List<Agente> CrearAgente()
+        private List<Agente> CrearAgentes()
         {
             List<Agente> agentes = new List<Agente>();
             agentes.Add(new Agente()
@@ -180,7 +180,7 @@ namespace PaqueteTuristicoWeb.Controllers
         }
         private Agente ObtenerAgente(int Codigo)
         {
-            List<Agente> agentes = (List<Agente>)Session["agentes"];
+            List<Agente> agentes = CrearAgentes();
             Agente model = agentes.Single(delegate(Agente agente)
             {
                 if (agente.CodAgente == Codigo) return true;
@@ -219,18 +219,13 @@ namespace PaqueteTuristicoWeb.Controllers
         //muestra página para ingresar datos de creación
         public ActionResult Create()
         {
-           /*
-            // inicializo el listado de tiposPaquetes
-            if (Session["tiposPaquete"] == null)
-                Session["tiposPaquete"] = CrearTiposPaquete();
-            List<TipoPaquete> modelTipoPaquete = (List<TipoPaquete>)Session["tiposPaquete"];
-            
-            return View(modelTipoPaquete);
-            * 
-            * */
 
-            var list = new SelectList(CrearTiposPaquete(), "Codigo", "Nombre");
+            var list = new SelectList(CrearTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete");
             ViewData["tiposPaquete"] = list;
+
+            var list2 = new SelectList(CrearAgentes(), "CodAgente", "RazonSocial");
+            ViewData["agentes"] = list2;
+
             return View();
         } 
 
@@ -245,19 +240,21 @@ namespace PaqueteTuristicoWeb.Controllers
                 int p = int.Parse(collection["tiposPaquete"]);
                 //obtenemos el tipoPaquete
                 TipoPaquete tipoPaquete = ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
-                
+
+                //obtenemos el agente
+                Agente agente = ObtenerAgente(int.Parse(collection["agentes"]));
 
                 //de la variable collection llenamos la lista de paquetes
                 List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
                 paquetes.Add(new Paquete()
                 {
-                    CodPaquete = int.Parse(collection["Codigo"]),
+                    CodPaquete = int.Parse(collection["CodPaquete"]),
                     TipoPaquete = new TipoPaquete()
                     {
                         CodTipoPaquete = tipoPaquete.CodTipoPaquete,
                         NombreTipoPaquete = tipoPaquete.NombreTipoPaquete,
                     },
-                    NombrePaquete = collection["Nombre"],
+                    NombrePaquete = collection["NombrePaquete"],
                     FechaInicio = collection["FechaInicio"],
                     FechaFin = collection["FechaFin"],
                     HoraInicio = collection["HoraInicio"],
@@ -265,7 +262,19 @@ namespace PaqueteTuristicoWeb.Controllers
                     Descripcion = collection["Descripcion"],
                     Lugares = collection["Lugares"],
                     InformacionAdicional = collection["InformacionAdicional"],
-                    Precio = decimal.Parse(collection["Precio"])
+                    Precio = decimal.Parse(collection["Precio"]),
+                    Cupos = int.Parse(collection["Cupos"]),
+                    Registrados = int.Parse(collection["Registrados"]),
+                    Agente = new Agente()
+                    {
+                        CodAgente = agente.CodAgente,
+                        RazonSocial = agente.RazonSocial,
+                        RUC = agente.RUC,
+                        CorreoAgente = agente.CorreoAgente,
+                        Direccion = agente.Direccion,
+                        NroCuentaInterbancaria = agente.NroCuentaInterbancaria
+                    }
+
                 });
                 return RedirectToAction("Index");
             }
@@ -282,8 +291,11 @@ namespace PaqueteTuristicoWeb.Controllers
         {
             Paquete model = ObtenerPaquete(id);
             //hallamos el tipo de paquete elegido
-            var list = new SelectList( CrearTiposPaquete(), "Codigo", "Nombre", model.TipoPaquete.CodTipoPaquete);
+            var list = new SelectList( CrearTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete", model.TipoPaquete.CodTipoPaquete);
             ViewData["tiposPaquete"] = list;
+
+            var list2 = new SelectList(CrearAgentes(), "CodAgente", "RazonSocial", model.Agente.CodAgente);
+            ViewData["agentes"] = list2;
             
             return View(model);
         }
@@ -301,10 +313,15 @@ namespace PaqueteTuristicoWeb.Controllers
                 //obtenemos el tipoPaquete
                 TipoPaquete tipoPaquete = ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
 
+                 //obtenemos el agente
+                Agente agente = ObtenerAgente(int.Parse(collection["agentes"]));
+                
                 Paquete model = ObtenerPaquete(id);
+
                 model.TipoPaquete.CodTipoPaquete = tipoPaquete.CodTipoPaquete;
                 model.TipoPaquete.NombreTipoPaquete = tipoPaquete.NombreTipoPaquete;
-                model.NombrePaquete = collection["Nombre"];
+                
+                model.NombrePaquete = collection["NombrePaquete"];
                 model.FechaInicio = collection["FechaInicio"];
                 model.FechaFin = collection["FechaFin"];
                 model.HoraInicio = collection["HoraInicio"];
@@ -313,6 +330,15 @@ namespace PaqueteTuristicoWeb.Controllers
                 model.Lugares = collection["Lugares"];
                 model.InformacionAdicional = collection["InformacionAdicional"];
                 model.Precio = decimal.Parse(collection["Precio"]);
+                model.Cupos = int.Parse(collection["Cupos"]);
+                model.Registrados = int.Parse(collection["Registrados"]);
+                model.Agente.CodAgente = agente.CodAgente;
+                model.Agente.RazonSocial = agente.RazonSocial;
+                model.Agente.RUC = agente.RUC;
+                model.Agente.CorreoAgente = agente.CorreoAgente;
+                model.Agente.Direccion = agente.Direccion;
+                model.Agente.NroCuentaInterbancaria = agente.NroCuentaInterbancaria;
+  
                 return RedirectToAction("Index");
             }
             catch
