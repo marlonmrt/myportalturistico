@@ -6,94 +6,48 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Listado de Paquetes</h2>
-
-    <table>
-        <tr>
-
-            <th></th>
-            <th>
-                Codigo
-            </th>
-             <th>
-                Tipo de Excursión
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th>
-                FechaInicio
-            </th>
-            <th>
-                FechaFin
-            </th>
-            <th>
-                HoraInicio
-            </th>
-            <th>
-                HoraFin
-            </th>
-            <th>
-                Descripcion
-            </th>
-            <th>
-                Lugares
-            </th>
-            <th>
-                InformacionAdicional
-            </th>
-            <th>
-                Precio
-            </th>
-        </tr>
-
+    <h2><strong>Listado de Paquetes</strong></h2>
+    <br />
+    <table cellpadding="2" cellspacing="2" border="0", style="width:450px">
     <% foreach (var item in Model) { %>
-    
-        <tr>
-            <td>
-                <%: Html.ActionLink("Editar", "Edit", new { id=item.Codigo }) %> |
-                <%: Html.ActionLink("Detalles", "Details", new { id = item.Codigo })%> |
-                <%: Html.ActionLink("Eliminar", "Delete", new { id = item.Codigo })%>
-            </td>
-            <td>
-                <%: item.Codigo %>
-            </td>
 
-            <td>
-                <%: item.TipoPaquete.Codigo %> - <%: item.TipoPaquete.Nombre %>
-            </td>
+    <tr>
+       <td><strong>Código de Paquete</strong></td><td><%: item.CodPaquete %></td><td>Tipo de Excursión</td><td><%: item.TipoPaquete.CodTipoPaquete %> - <%: item.TipoPaquete.NombreTipoPaquete %></td>
+    </tr>
+     <tr>
+       <td><strong>Nombre del Paquete</strong></td><td colspan="3"><%: item.NombrePaquete %></td>
+    </tr>  
+    <tr>
+       <td><strong>Fecha de Inicio</strong></td><td> <%: item.FechaInicio %></td><td><strong>Fecha de Fin</strong></td><td> <%: item.FechaFin %></td>
+    </tr>
+    <tr>
+       <td><strong>Hora de Inicio</strong></td><td><%: item.HoraInicio %></td><td><strong>Hora de Fin</strong></td><td><%: item.HoraFin %></td>
+    </tr>
+    <tr>
+       <td><strong>Descripcion</strong></td><td colspan="3"><%: item.Descripcion %></td>
+    </tr>
+     <tr>
+       <td><strong>Lugares</strong></td><td colspan="3"><%: item.Lugares %></td>
+    </tr>
+    <tr>
+    <td><strong>Información Adicional</strong></td><td colspan="3"><%: item.InformacionAdicional %></td>
+    </tr>
 
-            <td>
-                <%: item.Nombre %>
-            </td>
-            <td>
-                <%: item.FechaInicio %>
-            </td>
-            <td>
-                <%: item.FechaFin %>
-            </td>
-            <td>
-                <%: item.HoraInicio %>
-            </td>
-            <td>
-                <%: item.HoraFin %>
-            </td>
-            <td>
-                <%: item.Descripcion %>
-            </td>
-            <td>
-                <%: item.Lugares %>
-            </td>
-            <td>
-                <%: item.InformacionAdicional %>
-            </td>
-             <td>
-                <%: item.Precio %>
-            </td>
-        </tr>
-    
+     <tr>
+       <td><strong>Precio</strong></td><td ><%: item.Precio %></td><td><strong>Cupos Disponibles</strong></td><td> <%: item.Cupos - item.Registrados %></td>
+    </tr>
+     <tr>
+       <td><strong>Agente</strong></td><td colspan="3"><%: item.Agente.RazonSocial %></td>
+    </tr>
+    <tr>
+       <td colspan="4"> <%: Html.ActionLink("Editar", "Edit", new { id=item.CodPaquete }) %> |
+                <%: Html.ActionLink("Detalles", "Details", new { id = item.CodPaquete })%> |
+                <%: Html.ActionLink("Eliminar", "Delete", new { id = item.CodPaquete })%></td>
+    </tr>
+    <tr>
+       <td colspan="4"><hr /></td>
+    </tr>
     <% } %>
-
     </table>
 
     <p>

@@ -46,9 +46,40 @@ namespace PaqueteTuristicoWeb.Controllers
         
         private List<Paquete> CrearPaquetes()
         {
+            
+            //creo los tipos de paquete para armar el paquete 
             TipoPaquete fullDay = new TipoPaquete() { CodTipoPaquete = 1, NombreTipoPaquete = "Full Day" };
             TipoPaquete excursion = new TipoPaquete() { CodTipoPaquete = 2, NombreTipoPaquete = "Excursiones" };
 
+           //creo que los agentes para asociarlos a los paquetes
+            Agente agente1 = new Agente()
+            {
+                CodAgente = 1,
+                RazonSocial = "Viajes Falabella",
+                RUC = "10098273099",
+                CorreoAgente = "informes@viajesfalabella.com",
+                Direccion = "Av primavera 2263",
+                NroCuentaInterbancaria = "123456789123"
+            };
+            Agente agente2 = new Agente()
+            {
+                CodAgente = 2,
+                RazonSocial = "Paisajes Móviles",
+                RUC = "10098273055",
+                CorreoAgente = "informes@paisajesmov.com",
+                Direccion = "Av San Juan 2263",
+                NroCuentaInterbancaria = "05263963367455"
+            };
+           Agente agente3 = new Agente()
+            {
+                CodAgente = 3,
+                RazonSocial = "Ica Tours",
+                RUC = "10098273100",
+                CorreoAgente = "informes@icatours.com",
+                Direccion = "Av san miguel 2263",
+                NroCuentaInterbancaria = "45296335456"
+            };
+            
             List<Paquete> paquetes = new List<Paquete>();
             paquetes.Add(new Paquete() { CodPaquete = 1,
                                          TipoPaquete = fullDay, 
@@ -62,7 +93,8 @@ namespace PaqueteTuristicoWeb.Controllers
                                          InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
                                          Precio = 40.5M,
                                          Cupos = 10,
-                                         Registrados = 0
+                                         Registrados = 0,
+                                         Agente = agente1
                                          });
             paquetes.Add(new Paquete()
             {
@@ -78,7 +110,8 @@ namespace PaqueteTuristicoWeb.Controllers
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
                 Precio = 56.3M,
                 Cupos = 20,
-                Registrados = 0
+                Registrados = 0,
+                Agente = agente3
             });
             paquetes.Add(new Paquete()
             {
@@ -94,7 +127,8 @@ namespace PaqueteTuristicoWeb.Controllers
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
                 Precio = 40.5M,
                 Cupos = 15,
-                Registrados = 0
+                Registrados = 0,
+                Agente = agente2
             });
             return paquetes;
         }
@@ -125,7 +159,7 @@ namespace PaqueteTuristicoWeb.Controllers
             });
             agentes.Add(new Agente()
             {
-                CodAgente = 1,
+                CodAgente = 2,
                 RazonSocial = "Paisajes Móviles",
                 RUC = "10098273055",
                 CorreoAgente = "informes@paisajesmov.com",
@@ -134,7 +168,7 @@ namespace PaqueteTuristicoWeb.Controllers
             });
             agentes.Add(new Agente()
             {
-                CodAgente = 1,
+                CodAgente = 3,
                 RazonSocial = "Ica Tours",
                 RUC = "10098273100",
                 CorreoAgente = "informes@icatours.com",
