@@ -7,7 +7,7 @@ namespace PaqueteTuristicoWeb.Models
 {
     public class TipoPaquete
     {
-        public int Codigo { get; set; }
-        public String Nombre { get; set; }
+        public int CodTipoPaquete { get; set; }
+        public String NombreTipoPaquete { get; set; }
     }
 }

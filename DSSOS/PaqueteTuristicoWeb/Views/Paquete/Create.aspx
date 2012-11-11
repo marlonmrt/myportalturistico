@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<PaqueteTuristicoWeb.Models.Paquete>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-		S.O.S.
+		
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -100,8 +100,6 @@
                 <%: Html.TextBoxFor(model => model.Precio, new { @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.Precio)%>
             </div>
-
-
             <p>
                 <input type="submit" value="Crear Paquete" />
             </p>

@@ -15,18 +15,18 @@ namespace PaqueteTuristicoWeb.Controllers
             List<TipoPaquete> tiposPaquete = new List<TipoPaquete>();
             tiposPaquete.Add(new TipoPaquete()
             {
-                Codigo = 1,
-                Nombre = "Full Day"
+                CodTipoPaquete = 1,
+                NombreTipoPaquete = "Full Day"
             });
             tiposPaquete.Add(new TipoPaquete()
             {
-                Codigo = 2,
-                Nombre = "Excursiones"
+                CodTipoPaquete = 2,
+                NombreTipoPaquete = "Excursiones"
             });
             tiposPaquete.Add(new TipoPaquete()
             {
-                Codigo = 3,
-                Nombre = "Turismo ecológico"
+                CodTipoPaquete = 3,
+                NombreTipoPaquete = "Turismo ecológico"
             });
 
             return tiposPaquete;
@@ -37,22 +37,22 @@ namespace PaqueteTuristicoWeb.Controllers
             List<TipoPaquete> tiposPaquete = CrearTiposPaquete();
             TipoPaquete model = tiposPaquete.Single(delegate(TipoPaquete tipoPaquete)
             {
-                if (tipoPaquete.Codigo == Codigo) return true;
+                if (tipoPaquete.CodTipoPaquete == Codigo) return true;
                 else return false;
             });
             return model;
         }
-       
+       //*****************************************************************************************
         
         private List<Paquete> CrearPaquetes()
         {
-            TipoPaquete fullDay = new TipoPaquete() { Codigo = 1, Nombre = "Full Day" };
-            TipoPaquete excursion = new TipoPaquete() { Codigo = 2, Nombre = "Excursiones" };
+            TipoPaquete fullDay = new TipoPaquete() { CodTipoPaquete = 1, NombreTipoPaquete = "Full Day" };
+            TipoPaquete excursion = new TipoPaquete() { CodTipoPaquete = 2, NombreTipoPaquete = "Excursiones" };
 
             List<Paquete> paquetes = new List<Paquete>();
-            paquetes.Add(new Paquete() { Codigo = 1,
+            paquetes.Add(new Paquete() { CodPaquete = 1,
                                          TipoPaquete = fullDay, 
-                                         Nombre = "Full Day Caral", 
+                                         NombrePaquete = "Full Day Caral", 
                                          FechaInicio = "18/03/2012",
                                          FechaFin = "18/03/2012",
                                          HoraInicio = "8 am",
@@ -60,13 +60,15 @@ namespace PaqueteTuristicoWeb.Controllers
                                          Descripcion = "Viva la Aventura del Canotaje full day Lunahuana", 
                                          Lugares = "Lunahuana",
                                          InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
-                                         Precio = 40.5M
+                                         Precio = 40.5M,
+                                         Cupos = 10,
+                                         Registrados = 0
                                          });
             paquetes.Add(new Paquete()
             {
-                Codigo = 2,
+                CodPaquete = 2,
                 TipoPaquete = fullDay,
-                Nombre = "Full Day Paracas",
+                NombrePaquete = "Full Day Paracas",
                 FechaInicio = "18/06/2012",
                 FechaFin = "18/06/2012",
                 HoraInicio = "8 am",
@@ -74,13 +76,15 @@ namespace PaqueteTuristicoWeb.Controllers
                 Descripcion = "Descubre el encanto de las Dunas de Ica Full Day Paracas/Ica",
                 Lugares = "Paracas, Islas Ballestas",
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
-                Precio = 56.3M
+                Precio = 56.3M,
+                Cupos = 20,
+                Registrados = 0
             });
             paquetes.Add(new Paquete()
             {
-                Codigo = 3,
+                CodPaquete = 3,
                 TipoPaquete = excursion,
-                Nombre = "Tour Noches de Luna Lllena",
+                NombrePaquete = "Tour Noches de Luna Lllena",
                 FechaInicio = "18/03/2012",
                 FechaFin = "18/03/2012",
                 HoraInicio = "8 am",
@@ -88,7 +92,9 @@ namespace PaqueteTuristicoWeb.Controllers
                 Descripcion = "Tour nocturno al cementerio Presbítero Maestro",
                 Lugares = "cementerio Presbítero Maestro, Lima",
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
-                Precio = 40.5M
+                Precio = 40.5M,
+                Cupos = 15,
+                Registrados = 0
             });
             return paquetes;
         }
@@ -97,12 +103,61 @@ namespace PaqueteTuristicoWeb.Controllers
             List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
             Paquete model = paquetes.Single(delegate(Paquete paquete)
             {
-                if (paquete.Codigo == Codigo) return true;
+                if (paquete.CodPaquete == Codigo) return true;
                 else return false;
             });
             return model;
         }
         
+        // ****************************************************************************************
+
+        private List<Agente> CrearAgente()
+        {
+            List<Agente> agentes = new List<Agente>();
+            agentes.Add(new Agente()
+            {
+                CodAgente = 1,
+                RazonSocial = "Viajes Falabella",
+                RUC = "10098273099",
+                CorreoAgente = "informes@viajesfalabella.com",
+                Direccion = "Av primavera 2263",
+                NroCuentaInterbancaria = "123456789123"
+            });
+            agentes.Add(new Agente()
+            {
+                CodAgente = 1,
+                RazonSocial = "Paisajes Móviles",
+                RUC = "10098273055",
+                CorreoAgente = "informes@paisajesmov.com",
+                Direccion = "Av San Juan 2263",
+                NroCuentaInterbancaria = "05263963367455"
+            });
+            agentes.Add(new Agente()
+            {
+                CodAgente = 1,
+                RazonSocial = "Ica Tours",
+                RUC = "10098273100",
+                CorreoAgente = "informes@icatours.com",
+                Direccion = "Av san miguel 2263",
+                NroCuentaInterbancaria = "45296335456"
+            });
+
+            return agentes;
+        }
+        private Agente ObtenerAgente(int Codigo)
+        {
+            List<Agente> agentes = (List<Agente>)Session["agentes"];
+            Agente model = agentes.Single(delegate(Agente agente)
+            {
+                if (agente.CodAgente == Codigo) return true;
+                else return false;
+            });
+            return model;
+        }
+
+        // ****************************************************************************************
+
+
         //
         // GET: /Paquete/
         // muestra página con listado de paquetes
@@ -162,13 +217,13 @@ namespace PaqueteTuristicoWeb.Controllers
                 List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
                 paquetes.Add(new Paquete()
                 {
-                    Codigo = int.Parse(collection["Codigo"]),
+                    CodPaquete = int.Parse(collection["Codigo"]),
                     TipoPaquete = new TipoPaquete()
                     {
-                        Codigo = tipoPaquete.Codigo,
-                        Nombre = tipoPaquete.Nombre,
+                        CodTipoPaquete = tipoPaquete.CodTipoPaquete,
+                        NombreTipoPaquete = tipoPaquete.NombreTipoPaquete,
                     },
-                    Nombre = collection["Nombre"],
+                    NombrePaquete = collection["Nombre"],
                     FechaInicio = collection["FechaInicio"],
                     FechaFin = collection["FechaFin"],
                     HoraInicio = collection["HoraInicio"],
@@ -193,7 +248,7 @@ namespace PaqueteTuristicoWeb.Controllers
         {
             Paquete model = ObtenerPaquete(id);
             //hallamos el tipo de paquete elegido
-            var list = new SelectList( CrearTiposPaquete(), "Codigo", "Nombre", model.TipoPaquete.Codigo);
+            var list = new SelectList( CrearTiposPaquete(), "Codigo", "Nombre", model.TipoPaquete.CodTipoPaquete);
             ViewData["tiposPaquete"] = list;
             
             return View(model);
@@ -213,9 +268,9 @@ namespace PaqueteTuristicoWeb.Controllers
                 TipoPaquete tipoPaquete = ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
 
                 Paquete model = ObtenerPaquete(id);
-                model.TipoPaquete.Codigo = tipoPaquete.Codigo;
-                model.TipoPaquete.Nombre = tipoPaquete.Nombre;
-                model.Nombre = collection["Nombre"];
+                model.TipoPaquete.CodTipoPaquete = tipoPaquete.CodTipoPaquete;
+                model.TipoPaquete.NombreTipoPaquete = tipoPaquete.NombreTipoPaquete;
+                model.NombrePaquete = collection["Nombre"];
                 model.FechaInicio = collection["FechaInicio"];
                 model.FechaFin = collection["FechaFin"];
                 model.HoraInicio = collection["HoraInicio"];

@@ -76,11 +76,27 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Agente.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Paquete.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\TipoPaquete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\estilos.css" />
+    <Content Include="Content\images\body_bg.jpg" />
+    <Content Include="Content\images\body_bot.jpg" />
+    <Content Include="Content\images\body_hr.jpg" />
+    <Content Include="Content\images\body_top.jpg" />
+    <Content Include="Content\images\footer_bg.jpg" />
+    <Content Include="Content\images\header.jpg" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\page_bg.jpg" />
+    <Content Include="Content\images\pic_2.gif" />
+    <Content Include="Content\images\pic_3.gif" />
+    <Content Include="Content\images\travelagency_10.jpg" />
+    <Content Include="Content\images\travelagency_18.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Views\Paquete\Create.aspx" />
     <Content Include="Views\Paquete\Delete.aspx" />

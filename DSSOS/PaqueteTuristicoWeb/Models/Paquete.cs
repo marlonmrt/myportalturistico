@@ -7,9 +7,9 @@ namespace PaqueteTuristicoWeb.Models
 {
     public class Paquete
     {
-        public int Codigo { get; set; }
+        public int CodPaquete { get; set; }
         public TipoPaquete TipoPaquete { get; set; }
-        public String Nombre { get; set; }
+        public String NombrePaquete { get; set; }
         public String FechaInicio { get; set; }
         public String FechaFin { get; set; }
         public String HoraInicio { get; set; }
@@ -18,5 +18,8 @@ namespace PaqueteTuristicoWeb.Models
         public String Lugares { get; set; }
         public String InformacionAdicional { get; set; }
         public Decimal Precio { get; set; }
+        public int Cupos { get; set; }
+        public int Registrados { get; set; }
+        public Agente Agente { get; set; }  //se lleva el objeto Agente , pues está relacionado con él
     }
 }
