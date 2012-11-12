@@ -5,6 +5,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaqueteTuristicoWeb", "Paqu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaqueteTuristicoWeb.Tests", "PaqueteTuristicoWeb.Tests\PaqueteTuristicoWeb.Tests.csproj", "{DD4090DD-57B1-47F7-9E6E-63D770132553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServices", "SOAPServices\SOAPServices.csproj", "{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{91B70BC9-E69D-4E15-811C-09FF714F22ED}"
+	ProjectSection(SolutionItems) = preProject
+		Librerias\Iesi.Collections.dll = Librerias\Iesi.Collections.dll
+		Librerias\NHibernate.dll = Librerias\NHibernate.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -23,6 +31,10 @@ Global
 		{DD4090DD-57B1-47F7-9E6E-63D770132553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD4090DD-57B1-47F7-9E6E-63D770132553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD4090DD-57B1-47F7-9E6E-63D770132553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
