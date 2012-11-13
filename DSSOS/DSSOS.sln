@@ -13,10 +13,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{
 		Librerias\NHibernate.dll = Librerias\NHibernate.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServicesTest", "SOAPServicesTest\SOAPServicesTest.csproj", "{11D35E66-09C7-407A-BCD2-88350365BD1F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B} = {4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{924DECE6-409B-4657-9E38-DE7442A6DB79}"
+	ProjectSection(SolutionItems) = preProject
+		DSSOS.vsmdi = DSSOS.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
 		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = DSSOS.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +50,10 @@ Global
 		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AADB29B-D8D4-4FE8-BD22-FE47A111F37B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D35E66-09C7-407A-BCD2-88350365BD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D35E66-09C7-407A-BCD2-88350365BD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D35E66-09C7-407A-BCD2-88350365BD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D35E66-09C7-407A-BCD2-88350365BD1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
