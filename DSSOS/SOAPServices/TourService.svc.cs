@@ -59,7 +59,6 @@ namespace SOAPServices
         {
             Agente agenteACrear = new Agente()
             {
-
                 RazonSocial = razonSocial,
                 RUC = ruc,
                 CorreoAgente = correoAgente,
@@ -67,8 +66,8 @@ namespace SOAPServices
                 NroCuentaInterbancaria = nroCuentaInterBancaria
 
             };
-
-            return AgenteDAO.Crear(agenteACrear);
+            //return AgenteDAO.Crear(agenteACrear); // falta terminar el codigo para ingreso a DB
+            return agenteACrear;
 
         }
 
