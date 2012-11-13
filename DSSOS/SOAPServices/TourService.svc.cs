@@ -105,32 +105,48 @@ namespace SOAPServices
             return AgenteDAO.ListarTodos().ToList();
         }
         //*****************************************************************
+        
         public Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente)
         {
 
-            TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
-            Agente  agenteExistente = AgenteDAO.Obtener(agente);
-
-            Paquete paqueteACrear = new Paquete()
+            try
             {
-                TipoPaquete = tipoPaqueteExistente,
-                NombrePaquete = nombrePaquete,
-                FechaInicio = fechaInicio,
-                FechaFin = fechaFin,
-                HoraInicio = horaInicio,
-                HoraFin = horaFin,
-                Descripcion = descripcion,
-                Lugares = lugares,
-                InformacionAdicional = informacionAdicional,
-                Precio = precio,
-                Cupos = cupos,
-                Registrados = registrados,
-                Agente = agenteExistente
+                if(DateTime.Compare(fechaInicio,fechaFin) >0){
+                    throw new System.ArgumentException("la fecha de fin no puede ser menor que la del inicio", "original");
+                }
 
-            };
 
-            return PaqueteDAO.Crear(paqueteACrear);
+                TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
+                Agente agenteExistente = AgenteDAO.Obtener(agente);
 
+                Paquete paqueteACrear = new Paquete()
+                {
+                    TipoPaquete = tipoPaqueteExistente,
+                    NombrePaquete = nombrePaquete,
+                    FechaInicio = fechaInicio,
+                    FechaFin = fechaFin,
+                    HoraInicio = horaInicio,
+                    HoraFin = horaFin,
+                    Descripcion = descripcion,
+                    Lugares = lugares,
+                    InformacionAdicional = informacionAdicional,
+                    Precio = precio,
+                    Cupos = cupos,
+                    Registrados = registrados,
+                    Agente = agenteExistente
+
+                };
+
+                return PaqueteDAO.Crear(paqueteACrear);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            
+           
         }
 
         public Paquete ObtenerPaquete(int codigo)
