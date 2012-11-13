@@ -55,7 +55,7 @@ namespace SOAPServices
             return TipoPaqueteDAO.Obtener(codigo);
         }
         //*****************************************************************
-        public Agente CrearAgente(string razonSocial, string ruc, string correoAgente, string direccion, string nroCuentaInterBancaria)
+        public Agente CrearAgente(String razonSocial, String ruc, String correoAgente, String direccion, String nroCuentaInterBancaria)
         {
             Agente agenteACrear = new Agente()
             {
