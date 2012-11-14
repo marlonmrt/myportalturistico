@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SOAPServices"
+                   namespace="SOAPServices.Dominio"
+                   default-lazy="false">
+	<class name="Paquete" table="Paquete">
+		<id name="CodPaquete" column="CodPaquete">
+			<generator class="identity" />
+		</id>
+		<many-to-one name="TipoPaquete" column="CodTipoPaquete" />
+		<property name="NombrePaquete" column="NombrePaquete" />
+		<property name="FechaInicio" column="FechaInicio" />
+		<property name="FechaFin" column="FechaFin" />
+		<property name="HoraInicio" column="HoraInicio" />
+		<property name="HoraFin" column="HoraFin" />
+		<property name="Descripcion" column="Descripcion" />
+		<property name="Lugares" column="Lugares" />
+		<property name="InformacionAdicional" column="InformacionAdicional" />
+		<property name="Precio" column="Precio" />
+		<property name="Cupos" column="Cupos" />
+		<property name="Registrados" column="Registrados" />
+		<many-to-one name="Agente" column="CodAgente" />
+	</class>
+</hibernate-mapping>
