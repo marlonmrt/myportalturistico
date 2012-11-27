@@ -17,8 +17,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServicesTest", "SOAPSer
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{924DECE6-409B-4657-9E38-DE7442A6DB79}"
+	ProjectSection(SolutionItems) = preProject
+		DSSOS.vsmdi = DSSOS.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServices", "RESTServices\RESTServices.csproj", "{32F133DE-25D5-4543-B991-214B42385AC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServicesTest", "RESTServicesTest\RESTServicesTest.csproj", "{5E8C15FE-AF07-4BA4-80BC-092082D5C9B9}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -53,6 +60,10 @@ Global
 		{32F133DE-25D5-4543-B991-214B42385AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F133DE-25D5-4543-B991-214B42385AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F133DE-25D5-4543-B991-214B42385AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E8C15FE-AF07-4BA4-80BC-092082D5C9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E8C15FE-AF07-4BA4-80BC-092082D5C9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E8C15FE-AF07-4BA4-80BC-092082D5C9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E8C15FE-AF07-4BA4-80BC-092082D5C9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
