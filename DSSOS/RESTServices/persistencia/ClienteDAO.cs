@@ -97,34 +97,36 @@ namespace RESTServices.persistencia
             //return alumnoCreado;
         }
 
+        */
 
-        public List<Alumno> ListarTodos()
+        public List<Cliente> ListarTodos()
         {
-            List<Alumno> ListaAlumnoEncontrado = null;
-            ListaAlumnoEncontrado = new List<Alumno>();
-            string sql = "select * from t_alumno";
+            List<Cliente> clientesEncontrado = null;
+            clientesEncontrado = new List<Cliente>();
+            string sql = "select NombreCliente, ApellidoCliente, DNI, CorreoCliente from cliente";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    //com.Parameters.Add(new SqlParameter("@cod", codigo));
                     using (SqlDataReader resultado = com.ExecuteReader())
                     {
                         while (resultado.Read())
                         {
-                            Alumno alumnoEncontrado = new Alumno()
+                            Cliente clienteEncontrado = new Cliente()
                             {
-                                Codigo = (string)resultado["codigo"],
-                                Nombre = (string)resultado["nombre"]
+                                nombreCli = (string)resultado["NombreCliente"],
+                                apellidoCli = (string)resultado["ApellidoCliente"],
+                                dni = (string)resultado["DNI"],
+                                correo = (string)resultado["CorreoCliente"],
                             };
-                            ListaAlumnoEncontrado.Add(alumnoEncontrado);
+                            clientesEncontrado.Add(clienteEncontrado);
                         }
                     }
                 }
             }
-            return ListaAlumnoEncontrado;
+            return clientesEncontrado;
         }
-        */
+        
     }
 }
