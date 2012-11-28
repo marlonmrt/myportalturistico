@@ -79,17 +79,18 @@ namespace RESTServices.persistencia
             return alumnoModif;
         }
 
-        
-        public void Eliminar(string codigo)
+        */
+
+        public void Eliminar(string dni)
         {
             //Alumno alumnoCreado = null;
-            string sql = "delete from t_alumno where codigo=@cod";
+            string sql = "delete from cliente where DNI=@dni";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@cod", codigo));
+                    com.Parameters.Add(new SqlParameter("@dni", dni));
                     com.ExecuteNonQuery();
                 }
             }
@@ -97,7 +98,7 @@ namespace RESTServices.persistencia
             //return alumnoCreado;
         }
 
-        */
+        
 
         public List<Cliente> ListarTodos()
         {

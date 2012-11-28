@@ -57,18 +57,42 @@ namespace RESTServicesTest
 
 
 
-            //prueba LISTAR GET
-            HttpWebRequest req3 = (HttpWebRequest)WebRequest
-                .Create("http://localhost:61984/Clientes.svc/TodosClientes");
-            req3.Method = "GET";
-            HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
-            StreamReader reader3 = new StreamReader(res3.GetResponseStream());
-            string clienteJson3 = reader3.ReadToEnd();
-            JavaScriptSerializer js3 = new JavaScriptSerializer();
-            List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
+            ////prueba LISTAR GET
+            //HttpWebRequest req3 = (HttpWebRequest)WebRequest
+            //    .Create("http://localhost:61984/Clientes.svc/TodosClientes");
+            //req3.Method = "GET";
+            //HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
+            //StreamReader reader3 = new StreamReader(res3.GetResponseStream());
+            //string clienteJson3 = reader3.ReadToEnd();
+            //JavaScriptSerializer js3 = new JavaScriptSerializer();
+            //List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
 
-            Assert.AreEqual(2, clientesObtenidos.Count);
-            //Assert.AreEqual("user4", alumnosObtenidos.Nombre);
+            //Assert.AreEqual(2, clientesObtenidos.Count);
+            ////Assert.AreEqual("user4", alumnosObtenidos.Nombre);
+
+
+
+            //////////////////elimina y valida el elimina //////////////////
+            ///////prueba eliminar DELETE
+            //HttpWebRequest req4 = (HttpWebRequest)WebRequest
+            //    .Create("http://localhost:61984/Clientes.svc/Clientes/45157029");
+            //req4.Method = "DELETE";
+            //HttpWebResponse res4 = (HttpWebResponse)req4.GetResponse();
+            //StreamReader reader4 = new StreamReader(res4.GetResponseStream());
+
+            //////prueba obtener GET para validar el eliminar
+            //HttpWebRequest req5 = (HttpWebRequest)WebRequest
+            //    .Create("http://localhost:61984/Clientes.svc/Clientes/45157029");
+            //req5.Method = "GET";
+            //HttpWebResponse res5 = (HttpWebResponse)req5.GetResponse();
+            //StreamReader reader5 = new StreamReader(res5.GetResponseStream());
+            //string clienteJson5 = reader5.ReadToEnd();
+            //JavaScriptSerializer js5 = new JavaScriptSerializer();
+            //Cliente clientebtenido = js5.Deserialize<Cliente>(clienteJson5);
+            //Assert.AreEqual(null, clientebtenido);
+
+
+
 
 
         }

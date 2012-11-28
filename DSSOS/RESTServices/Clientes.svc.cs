@@ -30,7 +30,7 @@ namespace RESTServices
 
         public void EliminarCliente(string dni)
         {
-            throw new NotImplementedException();
+            dao.Eliminar(dni);
         }
 
         public List<Cliente> ListarClientes()
