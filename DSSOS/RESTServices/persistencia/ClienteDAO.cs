@@ -59,27 +59,29 @@ namespace RESTServices.persistencia
             return clienteEncontrado;
         }
 
-        /*
 
-        public Alumno Modificar(Alumno alumnoAModificar)
+
+        public Cliente Modificar(Cliente ClienteAModificar)
         {
-            Alumno alumnoModif = null;
-            string sql = "update t_alumno set nombre=@nom where codigo=@cod";
+            Cliente clienteModif = null;
+            string sql = "update cliente set NombreCliente=@nom, ApellidoCliente=@ape, CorreoCliente=@correo  where DNI=@dni";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@cod", alumnoAModificar.Codigo));
-                    com.Parameters.Add(new SqlParameter("@nom", alumnoAModificar.Nombre));
+                    com.Parameters.Add(new SqlParameter("@dni", ClienteAModificar.dni));
+                    com.Parameters.Add(new SqlParameter("@nom", ClienteAModificar.nombreCli));
+                    com.Parameters.Add(new SqlParameter("@ape", ClienteAModificar.apellidoCli));
+                    com.Parameters.Add(new SqlParameter("@correo", ClienteAModificar.correo));
                     com.ExecuteNonQuery();
                 }
             }
-            alumnoModif = Obtener(alumnoAModificar.Codigo);
-            return alumnoModif;
+            clienteModif = Obtener(ClienteAModificar.dni);
+            return clienteModif;
         }
 
-        */
+        
 
         public void Eliminar(string dni)
         {

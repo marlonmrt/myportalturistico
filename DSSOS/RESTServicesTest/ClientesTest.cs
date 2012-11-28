@@ -92,7 +92,26 @@ namespace RESTServicesTest
             //Assert.AreEqual(null, clientebtenido);
 
 
+            ////MODIFICACION PUT similar a creacion POST
+            string postdata2 = "{\"apellidoCli\":\"Vilca\",\"correo\":\"julio.vilca@gmail.com\",\"dni\":\"09827309\",\"nombreCli\":\"FelixtheCat\"}";
+            byte[] data2 = Encoding.UTF8.GetBytes(postdata2);
+            HttpWebRequest req6 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:61984/Clientes.svc/Clientes");
+            req6.Method = "PUT";
+            req6.ContentLength = data2.Length;
+            req6.ContentType = "application/json";
 
+            var reqStream6 = req6.GetRequestStream();
+            reqStream6.Write(data2, 0, data2.Length);
+
+            var res6 = (HttpWebResponse)req6.GetResponse(); //// aca fallaaaa
+            StreamReader reader6 = new StreamReader(res6.GetResponseStream());
+            string ClienteJson = reader6.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Cliente ClienteCreado = js.Deserialize<Cliente>(ClienteJson);
+
+            Assert.AreEqual("09827309", ClienteCreado.dni);
+            Assert.AreEqual("FelixtheCat", ClienteCreado.nombreCli);
 
 
         }
