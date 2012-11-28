@@ -40,7 +40,7 @@ namespace RESTServices.persistencia
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@cod", dni));
+                    com.Parameters.Add(new SqlParameter("@dni", dni));
                     using (SqlDataReader resultado = com.ExecuteReader())
                     {
                         if (resultado.Read())

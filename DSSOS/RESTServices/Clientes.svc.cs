@@ -9,7 +9,6 @@ using RESTServices.dominio;
 
 namespace RESTServices
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Clientes" in code, svc and config file together.
     public class Clientes : IClientes
     {
         private ClienteDAO dao = new ClienteDAO();
