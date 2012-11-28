@@ -25,7 +25,7 @@ namespace RESTServices
 
         public Cliente ModificarCliente(Cliente clienteAModificar)
         {
-            throw new NotImplementedException();
+            return dao.Modificar(clienteAModificar);
         }
 
         public void EliminarCliente(string dni)
