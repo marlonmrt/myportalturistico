@@ -35,7 +35,7 @@ namespace RESTServices
 
         public List<Cliente> ListarClientes()
         {
-            throw new NotImplementedException();
+            return dao.ListarTodos();
         }
 
     }

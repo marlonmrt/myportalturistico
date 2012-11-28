@@ -57,6 +57,20 @@ namespace RESTServicesTest
 
 
 
+            //prueba LISTAR GET
+            HttpWebRequest req3 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:61984/Clientes.svc/TodosClientes");
+            req3.Method = "GET";
+            HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
+            StreamReader reader3 = new StreamReader(res3.GetResponseStream());
+            string clienteJson3 = reader3.ReadToEnd();
+            JavaScriptSerializer js3 = new JavaScriptSerializer();
+            List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
+
+            Assert.AreEqual(2, clientesObtenidos.Count);
+            //Assert.AreEqual("user4", alumnosObtenidos.Nombre);
+
+
         }
     }
 }
