@@ -15,7 +15,7 @@ namespace RESTServices
     {
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "Clientes", ResponseFormat = WebMessageFormat.Json)]
-        Cliente CrearAlumno(Cliente clienteACrear);
+        Cliente CrearCliente(Cliente clienteACrear);
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Clientes/{dni}", ResponseFormat = WebMessageFormat.Json)]

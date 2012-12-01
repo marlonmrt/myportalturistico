@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TourService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1010/TourService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1010/TourService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1010/TourService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITourService_ObtenerTipoPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerTipoPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearAgente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearAgente" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearAgente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearAgenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerAgente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAgente" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerAgente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAgenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarAgente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarAgente" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarAgente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarAgenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarAgente_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAgente" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarAgente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAgenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarAgentes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAgentes" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarAgentes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAgentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarPaquetes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPaquetes" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarPaquetes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPaquetesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITourService">
+    <wsdl:operation name="ObtenerTipoPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerTipoPaquete" message="tns:ITourService_ObtenerTipoPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ObtenerTipoPaqueteResponse" message="tns:ITourService_ObtenerTipoPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearAgente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearAgente" message="tns:ITourService_CrearAgente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearAgenteResponse" message="tns:ITourService_CrearAgente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAgente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerAgente" message="tns:ITourService_ObtenerAgente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ObtenerAgenteResponse" message="tns:ITourService_ObtenerAgente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAgente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ModificarAgente" message="tns:ITourService_ModificarAgente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ModificarAgenteResponse" message="tns:ITourService_ModificarAgente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAgente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/EliminarAgente" message="tns:ITourService_EliminarAgente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/EliminarAgenteResponse" message="tns:ITourService_EliminarAgente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAgentes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarAgentes" message="tns:ITourService_ListarAgentes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ListarAgentesResponse" message="tns:ITourService_ListarAgentes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearPaquete" message="tns:ITourService_CrearPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteResponse" message="tns:ITourService_CrearPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerPaquete" message="tns:ITourService_ObtenerPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ObtenerPaqueteResponse" message="tns:ITourService_ObtenerPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ModificarPaquete" message="tns:ITourService_ModificarPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ModificarPaqueteResponse" message="tns:ITourService_ModificarPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/EliminarPaquete" message="tns:ITourService_EliminarPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/EliminarPaqueteResponse" message="tns:ITourService_EliminarPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPaquetes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarPaquetes" message="tns:ITourService_ListarPaquetes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ListarPaquetesResponse" message="tns:ITourService_ListarPaquetes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITourService" type="tns:ITourService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTipoPaquete">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerTipoPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearAgente">
+      <soap:operation soapAction="http://tempuri.org/ITourService/CrearAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAgente">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAgente">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ModificarAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAgente">
+      <soap:operation soapAction="http://tempuri.org/ITourService/EliminarAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAgentes">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ListarAgentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearPaquete">
+      <soap:operation soapAction="http://tempuri.org/ITourService/CrearPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPaquete">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarPaquete">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ModificarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPaquete">
+      <soap:operation soapAction="http://tempuri.org/ITourService/EliminarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPaquetes">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ListarPaquetes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TourService">
+    <wsdl:port name="BasicHttpBinding_ITourService" binding="tns:BasicHttpBinding_ITourService">
+      <soap:address location="http://localhost:1010/TourService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

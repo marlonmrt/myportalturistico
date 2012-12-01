@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using RESTServices.persistencia;
 using RESTServices.dominio;
+using System.ServiceModel.Web;
+using System.Net;
 
 namespace RESTServices
 {
@@ -13,8 +15,30 @@ namespace RESTServices
     {
         private ClienteDAO dao = new ClienteDAO();
 
-        public Cliente CrearAlumno(Cliente clienteACrear)
+        public Cliente CrearCliente(Cliente clienteACrear)
         {
+           
+            if (clienteACrear.dni.Equals("") || clienteACrear.nombreCli.Equals("") || clienteACrear.correo.Equals("") || clienteACrear.apellidoCli.Equals(""))
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error2",
+                        MensajeNegocio = "Ingrese su información completa"
+                    },
+                    HttpStatusCode.InternalServerError);
+
+
+            Cliente existe = ObtenerCliente(clienteACrear.dni);
+            if (existe != null)
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error1",
+                        MensajeNegocio = "El cliente " + clienteACrear.dni + " ya existe !!!!!"
+                    },
+                    HttpStatusCode.InternalServerError);
+
+            
             return dao.Crear(clienteACrear);
         }
 
