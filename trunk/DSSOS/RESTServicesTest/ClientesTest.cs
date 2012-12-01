@@ -19,84 +19,87 @@ namespace RESTServicesTest
         [TestMethod]
         public void TestMethod1()
         {
-            ////creacion POST //cambiar DNI para que salga OK el test//////////////////////
-            //string postdata = "{\"apellidoCli\":\"Villayzan\",\"correo\":\"gab2k@me.com\",\"dni\":\"45157029\",\"nombreCli\":\"Gabo\"}";
-            //byte[] data = Encoding.UTF8.GetBytes(postdata);
-            //HttpWebRequest req = (HttpWebRequest)WebRequest
-            //    .Create("http://localhost:61984/Clientes.svc/Clientes");
-            //req.Method = "POST";
-            //req.ContentLength = data.Length;
-            //req.ContentType = "application/json";
+            
+            // /*
+            //creacion POST //cambiar DNI para que salga OK el test//////////////////////
+            string postdata = "{\"apellidoCli\":\"Villayzan\",\"correo\":\"gab2k@me.com\",\"dni\":\"45157029\",\"nombreCli\":\"Gabo\"}";
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest req = (HttpWebRequest)WebRequest
+                .Create("http://localhost:1020/Clientes.svc/Clientes");
+            req.Method = "POST";
+            req.ContentLength = data.Length;
+            req.ContentType = "application/json";
 
-            //var reqStream = req.GetRequestStream();
-            //reqStream.Write(data, 0, data.Length);
+            var reqStream = req.GetRequestStream();
+            reqStream.Write(data, 0, data.Length);
 
-            //var res = (HttpWebResponse)req.GetResponse();
-            //StreamReader reader = new StreamReader(res.GetResponseStream());
-            //string alumnoJson = reader.ReadToEnd();
-            //JavaScriptSerializer js = new JavaScriptSerializer();
-            //Cliente clienteCreado = js.Deserialize<Cliente>(alumnoJson);
+            var res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string alumnoJson = reader.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Cliente clienteCreado = js.Deserialize<Cliente>(alumnoJson);
 
-            //Assert.AreEqual("45157029", clienteCreado.dni);
-            //Assert.AreEqual("Gabo", clienteCreado.nombreCli);
+            Assert.AreEqual("45157029", clienteCreado.dni);
+            Assert.AreEqual("Gabo", clienteCreado.nombreCli);
+            // */
 
-
+                /*
             ////prueba obtener GET
-            //HttpWebRequest req2 = (HttpWebRequest)WebRequest
-            //    .Create("http://localhost:61984/Clientes.svc/Clientes/45157029");
-            //req2.Method = "GET";
-            //HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
-            //StreamReader reader2 = new StreamReader(res2.GetResponseStream());
-            //string clienteJson2 = reader2.ReadToEnd();
-            //JavaScriptSerializer js2 = new JavaScriptSerializer();
-            //Cliente clienteObtenido = js2.Deserialize<Cliente>(clienteJson2);
+            HttpWebRequest req2 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            req2.Method = "GET";
+            HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
+            StreamReader reader2 = new StreamReader(res2.GetResponseStream());
+            string clienteJson2 = reader2.ReadToEnd();
+            JavaScriptSerializer js2 = new JavaScriptSerializer();
+            Cliente clienteObtenido = js2.Deserialize<Cliente>(clienteJson2);
 
-            //Assert.AreEqual("45157029", clienteObtenido.dni);
-            //Assert.AreEqual("Gabo", clienteObtenido.nombreCli);
+            Assert.AreEqual("45157029", clienteObtenido.dni);
+            Assert.AreEqual("Gabo", clienteObtenido.nombreCli);
+              */
 
+                /*
+            //prueba LISTAR GET
+            HttpWebRequest req3 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:1020/Clientes.svc/TodosClientes");
+            req3.Method = "GET";
+            HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
+            StreamReader reader3 = new StreamReader(res3.GetResponseStream());
+            string clienteJson3 = reader3.ReadToEnd();
+            JavaScriptSerializer js3 = new JavaScriptSerializer();
+            List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
 
+            Assert.AreEqual(2, clientesObtenidos.Count);
+            //Assert.AreEqual("user4", alumnosObtenidos.Nombre);
+                 */
 
-
-            ////prueba LISTAR GET
-            //HttpWebRequest req3 = (HttpWebRequest)WebRequest
-            //    .Create("http://localhost:61984/Clientes.svc/TodosClientes");
-            //req3.Method = "GET";
-            //HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
-            //StreamReader reader3 = new StreamReader(res3.GetResponseStream());
-            //string clienteJson3 = reader3.ReadToEnd();
-            //JavaScriptSerializer js3 = new JavaScriptSerializer();
-            //List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
-
-            //Assert.AreEqual(2, clientesObtenidos.Count);
-            ////Assert.AreEqual("user4", alumnosObtenidos.Nombre);
-
-
-
+                /*
             //////////////////elimina y valida el elimina //////////////////
             ///////prueba eliminar DELETE
-            //HttpWebRequest req4 = (HttpWebRequest)WebRequest
-            //    .Create("http://localhost:61984/Clientes.svc/Clientes/45157029");
-            //req4.Method = "DELETE";
-            //HttpWebResponse res4 = (HttpWebResponse)req4.GetResponse();
-            //StreamReader reader4 = new StreamReader(res4.GetResponseStream());
+            HttpWebRequest req4 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            req4.Method = "DELETE";
+            HttpWebResponse res4 = (HttpWebResponse)req4.GetResponse();
+            StreamReader reader4 = new StreamReader(res4.GetResponseStream());
 
-            //////prueba obtener GET para validar el eliminar
-            //HttpWebRequest req5 = (HttpWebRequest)WebRequest
-            //    .Create("http://localhost:61984/Clientes.svc/Clientes/45157029");
-            //req5.Method = "GET";
-            //HttpWebResponse res5 = (HttpWebResponse)req5.GetResponse();
-            //StreamReader reader5 = new StreamReader(res5.GetResponseStream());
-            //string clienteJson5 = reader5.ReadToEnd();
-            //JavaScriptSerializer js5 = new JavaScriptSerializer();
-            //Cliente clientebtenido = js5.Deserialize<Cliente>(clienteJson5);
-            //Assert.AreEqual(null, clientebtenido);
+            ////prueba obtener GET para validar el eliminar
+            HttpWebRequest req5 = (HttpWebRequest)WebRequest
+                .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            req5.Method = "GET";
+            HttpWebResponse res5 = (HttpWebResponse)req5.GetResponse();
+            StreamReader reader5 = new StreamReader(res5.GetResponseStream());
+            string clienteJson5 = reader5.ReadToEnd();
+            JavaScriptSerializer js5 = new JavaScriptSerializer();
+            Cliente clientebtenido = js5.Deserialize<Cliente>(clienteJson5);
+            Assert.AreEqual(null, clientebtenido);
+                 */
 
-
+              /*
             ////MODIFICACION PUT similar a creacion POST
-            string postdata2 = "{\"apellidoCli\":\"Vilca\",\"correo\":\"julio.vilca@gmail.com\",\"dni\":\"09827309\",\"nombreCli\":\"FelixtheCat\"}";
+            string postdata2 = "{\"apellidoCli\":\"Vilca\",\"correo\":\"julio.vilca@upc.edu.pe\",\"dni\":\"09827309\",\"nombreCli\":\"Felix\"}";
             byte[] data2 = Encoding.UTF8.GetBytes(postdata2);
             HttpWebRequest req6 = (HttpWebRequest)WebRequest
-                .Create("http://localhost:61984/Clientes.svc/Clientes");
+                .Create("http://localhost:1020/Clientes.svc/Clientes");
             req6.Method = "PUT";
             req6.ContentLength = data2.Length;
             req6.ContentType = "application/json";
@@ -111,9 +114,9 @@ namespace RESTServicesTest
             Cliente ClienteCreado = js.Deserialize<Cliente>(ClienteJson);
 
             Assert.AreEqual("09827309", ClienteCreado.dni);
-            Assert.AreEqual("FelixtheCat", ClienteCreado.nombreCli);
+            Assert.AreEqual("Felix", ClienteCreado.nombreCli);
 
-
+             */
         }
     }
 }
