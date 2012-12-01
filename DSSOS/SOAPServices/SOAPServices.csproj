@@ -65,7 +65,9 @@
   <ItemGroup>
     <Content Include="ConsultasService.svc" />
     <EmbeddedResource Include="Dominio\Agente.hbm.xml" />
-    <EmbeddedResource Include="Dominio\Paquete.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Paquete.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dominio\TipoPaquete.hbm.xml" />
     <Content Include="SeguridadService.svc" />
     <Content Include="TourService.svc" />
