@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="dominio\Agente.cs" />
     <Compile Include="dominio\Cliente.cs" />
+    <Compile Include="dominio\Error.cs" />
     <Compile Include="dominio\Paquete.cs" />
     <Compile Include="dominio\Reserva.cs" />
     <Compile Include="dominio\test.cs" />

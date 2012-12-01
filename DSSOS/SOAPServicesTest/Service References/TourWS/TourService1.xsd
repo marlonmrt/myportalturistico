@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TipoPaquete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodTipoPaquete" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreTipoPaquete" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoPaquete" nillable="true" type="tns:TipoPaquete" />
+  <xs:complexType name="Agente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodAgente" type="xs:int" />
+      <xs:element minOccurs="0" name="CorreoAgente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NroCuentaInterbancaria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RUC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Agente" nillable="true" type="tns:Agente" />
+  <xs:complexType name="ArrayOfAgente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Agente" nillable="true" type="tns:Agente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgente" nillable="true" type="tns:ArrayOfAgente" />
+  <xs:complexType name="Paquete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agente" nillable="true" type="tns:Agente" />
+      <xs:element minOccurs="0" name="CodPaquete" type="xs:int" />
+      <xs:element minOccurs="0" name="Cupos" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraFin" type="xs:int" />
+      <xs:element minOccurs="0" name="HoraInicio" type="xs:int" />
+      <xs:element minOccurs="0" name="InformacionAdicional" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lugares" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombrePaquete" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Precio" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Registrados" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoPaquete" nillable="true" type="tns:TipoPaquete" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Paquete" nillable="true" type="tns:Paquete" />
+  <xs:complexType name="ArrayOfPaquete">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Paquete" nillable="true" type="tns:Paquete" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaquete" nillable="true" type="tns:ArrayOfPaquete" />
+</xs:schema>
