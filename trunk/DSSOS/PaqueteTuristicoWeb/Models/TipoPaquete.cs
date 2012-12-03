@@ -8,6 +8,6 @@ namespace PaqueteTuristicoWeb.Models
     public class TipoPaquete
     {
         public int CodTipoPaquete { get; set; }
-        public String NombreTipoPaquete { get; set; }
+        public string NombreTipoPaquete { get; set; }
     }
 }
