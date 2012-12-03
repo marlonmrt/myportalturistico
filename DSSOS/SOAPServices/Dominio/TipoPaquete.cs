@@ -12,6 +12,6 @@ namespace SOAPServices.Dominio
         [DataMember]
         public int CodTipoPaquete { get; set; }
         [DataMember]
-        public String NombreTipoPaquete { get; set; }
+        public string NombreTipoPaquete { get; set; }
     }
 }

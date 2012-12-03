@@ -55,6 +55,7 @@ namespace SOAPServices
             return TipoPaqueteDAO.Obtener(codigo);
         }
         //*****************************************************************
+       /*
         public Agente CrearAgente(String razonSocial, String ruc, String correoAgente, String direccion, String nroCuentaInterBancaria)
         {
             Agente agenteACrear = new Agente()
@@ -70,12 +71,14 @@ namespace SOAPServices
             return agenteACrear;
 
         }
+        * */
 
         public Agente ObtenerAgente(int codigo)
         {
             return AgenteDAO.Obtener(codigo);
         }
 
+        /*
         public Agente ModificarAgente(int codigo, string razonSocial, string ruc, string correoAgente, string direccion, string nroCuentaInterBancaria)
         {
 
@@ -92,16 +95,24 @@ namespace SOAPServices
             return AgenteDAO.Modificar(agenteAModificar);
 
         }
-
+         * */
+        /*
         public void EliminarAgente(int codigo)
         {
             Agente agenteExistente = AgenteDAO.Obtener(codigo);
             AgenteDAO.Eliminar(agenteExistente);
         }
+         * */
 
         public List<Agente> ListarAgentes()
         {
             return AgenteDAO.ListarTodos().ToList();
+        }
+        //*****************************************************************
+
+        public List<TipoPaquete> ListarTiposPaquete()
+        {
+            return TipoPaqueteDAO.ListarTodos().ToList();
         }
         //*****************************************************************
         
@@ -147,12 +158,12 @@ namespace SOAPServices
             */
            
         }
-
+        //*****************************************************************
         public Paquete ObtenerPaquete(int codigo)
         {
             return PaqueteDAO.Obtener(codigo);
         }
-
+        //*****************************************************************
         public Paquete ModificarPaquete(int codigo, int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente)
         {
             TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
@@ -179,19 +190,19 @@ namespace SOAPServices
 
             return PaqueteDAO.Modificar(paqueteAModificar);
         }
-
+        //*****************************************************************
         public void EliminarPaquete(int codigo)
         {
             Paquete paqueteExistente = PaqueteDAO.Obtener(codigo);
             PaqueteDAO.Eliminar(paqueteExistente);
         }
-
+        //*****************************************************************
         public List<Paquete> ListarPaquetes()
         {
             return PaqueteDAO.ListarTodos().ToList();
         }
-
-        //*****************************Reserva******
+        //*****************************************************************
+        
         
         #endregion
     }

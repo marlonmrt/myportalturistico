@@ -9,9 +9,7 @@ namespace SOAPServices.Persistencia
     {
         public static string ObtenerCadena()
         {
-            //return "Data Source=(local);Initial Catalog=bdPaquetesTuristicos;Integrated Security=SSPI;";
-
-            return "Data Source=(local);Initial Catalog=bdPaquetesTuristicos;Integrated Security=SSPI;";
+          return "Data Source=(local);Initial Catalog=bdPaquetesTuristicos;Integrated Security=SSPI;";
         }
     }
 }
