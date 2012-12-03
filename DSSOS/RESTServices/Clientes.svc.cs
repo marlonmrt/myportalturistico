@@ -17,24 +17,47 @@ namespace RESTServices
 
         public Cliente CrearCliente(Cliente clienteACrear)
         {
-           
-            if (clienteACrear.dni.Equals("") || clienteACrear.nombreCli.Equals("") || clienteACrear.correo.Equals("") || clienteACrear.apellidoCli.Equals(""))
+           //esta primera parte valida si e ha ingresado algun campo vacío
+            //para nuestro caso, deben ingresarse todos, sino, sale error
+            if (clienteACrear.DNI.Equals("") || clienteACrear.NombreCliente.Equals("") || clienteACrear.CorreoCliente.Equals("") || clienteACrear.ApellidoCliente.Equals(""))
                 throw new WebFaultException<Error>(
                     new Error()
                     {
                         CodigoNegocio = "Error2",
-                        MensajeNegocio = "Ingrese su información completa"
+                        MensajeNegocio = "La información ingresada debe estar completa"
+                    },
+                    HttpStatusCode.BadRequest);
+
+            // validamos si el dni ingresado es uno correcto
+            //uso una Funciones que coloqué en la clase decimal funciones
+            if (Funciones.ValidaDNI(clienteACrear.DNI.Trim()) == false)
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error4",
+                        MensajeNegocio = "El DNI ingresado es incorrecto."
                     },
                     HttpStatusCode.InternalServerError);
 
+            // validamos si el correo ingresado es uno correcto
+            //uso una Funciones que coloqué en la clase decimal funciones
+            if (Funciones.es_email(clienteACrear.CorreoCliente.Trim()) == false)
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error3",
+                        MensajeNegocio = "El correo ingresado es incorrecto."
+                    },
+                    HttpStatusCode.InternalServerError);
 
-            Cliente existe = ObtenerCliente(clienteACrear.dni);
+            //ahora validamnos si el cliente ya existe por su DNI 
+            Cliente existe = ObtenerCliente(clienteACrear.DNI);
             if (existe != null)
                 throw new WebFaultException<Error>(
                     new Error()
                     {
                         CodigoNegocio = "Error1",
-                        MensajeNegocio = "El cliente " + clienteACrear.dni + " ya existe !!!!!"
+                        MensajeNegocio = "El cliente " + clienteACrear.DNI + " ya existe !!!!!"
                     },
                     HttpStatusCode.InternalServerError);
 
