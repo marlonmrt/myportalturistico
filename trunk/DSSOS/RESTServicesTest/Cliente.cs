@@ -7,9 +7,11 @@ namespace RESTServicesTest
 {
     public class Cliente
     {
-        public string apellidoCli { get; set; }
-        public string correo { get; set; }
-        public string dni { get; set; }
-        public string nombreCli { get; set; }
+        public int CodCliente { get; set; }
+        public string NombreCliente { get; set; }
+        public string ApellidoCliente { get; set; }
+        public string DNI { get; set; }
+        public string CorreoCliente { get; set; }
+
     }
 }
