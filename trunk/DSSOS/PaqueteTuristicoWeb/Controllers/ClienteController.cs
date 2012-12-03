@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Text;
+using System.Net;
+using System.IO;
+using PaqueteTuristicoWeb.Models;
 
 namespace PaqueteTuristicoWeb.Controllers
 {
     public class ClienteController : Controller
     {
-        //
-        // GET: /Cliente/
+        private string clienteRESTService = "http://localhost:30000/Clientes.svc/Clientes";
+        JavaScriptSerializer js = new JavaScriptSerializer();
 
+
+        // GET: /Cliente/
         public ActionResult Index()
         {
             return View();
@@ -40,12 +47,41 @@ namespace PaqueteTuristicoWeb.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                //aqui se rellenan los datos que viene de la pantalla
+                string postdata = "{\"NombreCliente\":\"" + collection["NombreCliente"] + "\",\"ApellidoCliente\":\"" + collection["ApellidoCliente"] + "\",\"DNI\":\"" + collection["DNI"] + "\",\"CorreoCliente\":\"" + collection["CorreoCliente"] + "\"}";
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(clienteRESTService);
+                req.Method = "POST";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                var res = (HttpWebResponse)req.GetResponse();
 
-                return RedirectToAction("Index");
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Cliente creado";
+                return View();
+                //return RedirectToAction("Index");
             }
-            catch
+            catch (WebException e) //caso negativo
             {
+                HttpWebResponse resError = (HttpWebResponse)e.Response;
+                StreamReader reader2 = new StreamReader(resError.GetResponseStream());
+                string error = reader2.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Error objetoError = js.Deserialize<Error>(error);
+
+                ModelState.AddModelError("Error", objetoError.MensajeNegocio);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + objetoError.MensajeNegocio;
+                return View();
+
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Error", e.Message);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
                 return View();
             }
         }
