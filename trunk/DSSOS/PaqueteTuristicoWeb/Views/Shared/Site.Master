@@ -20,23 +20,21 @@
   </div>
   <div id="right">
     <div id="nav">
-      <ul>
-        <li class="selected"><%: Html.ActionLink("Página principal", "LogOn", "Account")%></li>
+       <ul>
         <li class="selected"><%: Html.ActionLink("Paquetes Turísticos", "Index", "Paquete")%></li>
+        <li class="selected"><%: Html.ActionLink("Clientes", "Create", "Cliente")%></li>
         <!-- Roger, Herivert, .. estoy creando la página de reserva-->
         <!-- el controlador se llamará ReservaController-->
-        <li><%: Html.ActionLink("Reserva de Paquetes", "Index", "Reserva")%></li>
-        <!-- Félix, para el registro de clientes -->
-        <!--<li><%: Html.ActionLink("Clientes", "Index", "Cliente")%></li>-->
-        <li><%: Html.ActionLink("Agentes", "Index", "Agente")%></li>  
+        <li class="selected"><%: Html.ActionLink("Reserva de Paquetes", "Index", "Reserva")%></li>
+        <li class="selected"><%: Html.ActionLink("Agentes", "Index", "Agente")%></li>  
         <!-- <li class="last"><% Html.RenderPartial("LogOnUserControl"); %></li> -->
         <!--
         <li><%: Html.ActionLink("Acerca de", "About", "Home")%></li>
         <li><a href="http://all-free-download.com/free-website-templates/">Events</a></li>
         <li><a href="http://all-free-download.com/free-website-templates/">Offer</a></li>
-
         -->
-      </ul>
+
+        </ul>
     </div>
     <div id="body">
       <div id="body-top">
