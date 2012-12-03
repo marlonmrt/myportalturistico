@@ -21,10 +21,10 @@ namespace RESTServicesTest
         {
             // /*
             //creacion POST //cambiar DNI para que salga OK el test//////////////////////
-            string postdata = "{\"apellidoCli\":\"Villayzan\",\"correo\":\"gab2k@me.com\",\"dni\":\"45157029\",\"nombreCli\":\"Gabo\"}";
+            string postdata = "{\"NombreCliente\":\"Gabo\",\"ApellidoCliente\":\"Villayzan\",\"DNI\":\"45157029\",\"CorreoCliente\":\"gab2k@me.com\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:1020/Clientes.svc/Clientes");
+                .Create("http://localhost:30000/Clientes.svc/Clientes");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";
@@ -41,10 +41,10 @@ namespace RESTServicesTest
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Cliente clienteCreado = js.Deserialize<Cliente>(alumnoJson);
 
-                Assert.AreEqual("45157029", clienteCreado.dni);
-                Assert.AreEqual("Gabo", clienteCreado.nombreCli);
-                Assert.AreEqual("Villayzan", clienteCreado.apellidoCli);
-                Assert.AreEqual("gab2k@me.com", clienteCreado.correo);
+                Assert.AreEqual("45157029", clienteCreado.DNI);
+                Assert.AreEqual("Gabo", clienteCreado.NombreCliente);
+                Assert.AreEqual("Villayzan", clienteCreado.ApellidoCliente);
+                Assert.AreEqual("gab2k@me.com", clienteCreado.CorreoCliente);
                
             }
             catch (WebException e) //caso negativo
@@ -67,10 +67,11 @@ namespace RESTServicesTest
         {
             // /*
             //creacion POST //cambiar DNI para que salga OK el test//////////////////////
-            string postdata = "{\"apellidoCli\":\"\",\"correo\":\"gab2k@me.com\",\"dni\":\"45157029\",\"nombreCli\":\"Gabo\"}";
+           // string postdata = "{\"apellidoCli\":\"\",\"correo\":\"gab2k@me.com\",\"dni\":\"45157029\",\"nombreCli\":\"Gabo\"}";
+            string postdata = "{\"NombreCliente\":\"\",\"ApellidoCliente\":\"Villayzan\",\"DNI\":\"45157029\",\"CorreoCliente\":\"gab2k@me.com\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:1020/Clientes.svc/Clientes");
+                .Create("http://localhost:30000/Clientes.svc/Clientes");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";
@@ -87,10 +88,10 @@ namespace RESTServicesTest
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Cliente clienteCreado = js.Deserialize<Cliente>(alumnoJson);
 
-                Assert.AreEqual("45157029", clienteCreado.dni);
-                Assert.AreEqual("Gabo", clienteCreado.nombreCli);
-                Assert.AreEqual("Villayzan", clienteCreado.apellidoCli);
-                Assert.AreEqual("gab2k@me.com", clienteCreado.correo);
+                Assert.AreEqual("45157029", clienteCreado.DNI);
+                Assert.AreEqual("Gabo", clienteCreado.NombreCliente);
+                Assert.AreEqual("Villayzan", clienteCreado.ApellidoCliente);
+                Assert.AreEqual("gab2k@me.com", clienteCreado.CorreoCliente);
 
             }
             catch (WebException e) //caso negativo
@@ -102,13 +103,11 @@ namespace RESTServicesTest
                 Error objetoError = js.Deserialize<Error>(error);
 
                 Assert.AreEqual("Error2", objetoError.CodigoNegocio);
-                Assert.AreEqual("Ingrese su información completa", objetoError.MensajeNegocio);
+                Assert.AreEqual("La información ingresada debe estar completa", objetoError.MensajeNegocio);
             }
-
-
+            
         }
 
-       
         // [TestMethod]
         public void TestGeneralCliente()
         {
@@ -116,7 +115,7 @@ namespace RESTServicesTest
             /*
         ////prueba obtener GET
         HttpWebRequest req2 = (HttpWebRequest)WebRequest
-            .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            .Create("http://localhost:30000/Clientes.svc/Clientes/45157029");
         req2.Method = "GET";
         HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
         StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -131,7 +130,7 @@ namespace RESTServicesTest
             /*
         //prueba LISTAR GET
         HttpWebRequest req3 = (HttpWebRequest)WebRequest
-            .Create("http://localhost:1020/Clientes.svc/TodosClientes");
+            .Create("http://localhost:30000/Clientes.svc/TodosClientes");
         req3.Method = "GET";
         HttpWebResponse res3 = (HttpWebResponse)req3.GetResponse();
         StreamReader reader3 = new StreamReader(res3.GetResponseStream());
@@ -147,14 +146,14 @@ namespace RESTServicesTest
         //////////////////elimina y valida el elimina //////////////////
         ///////prueba eliminar DELETE
         HttpWebRequest req4 = (HttpWebRequest)WebRequest
-            .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            .Create("http://localhost:30000/Clientes.svc/Clientes/45157029");
         req4.Method = "DELETE";
         HttpWebResponse res4 = (HttpWebResponse)req4.GetResponse();
         StreamReader reader4 = new StreamReader(res4.GetResponseStream());
 
         ////prueba obtener GET para validar el eliminar
         HttpWebRequest req5 = (HttpWebRequest)WebRequest
-            .Create("http://localhost:1020/Clientes.svc/Clientes/45157029");
+            .Create("http://localhost:30000/Clientes.svc/Clientes/45157029");
         req5.Method = "GET";
         HttpWebResponse res5 = (HttpWebResponse)req5.GetResponse();
         StreamReader reader5 = new StreamReader(res5.GetResponseStream());
@@ -169,7 +168,7 @@ namespace RESTServicesTest
           string postdata2 = "{\"apellidoCli\":\"Vilca\",\"correo\":\"julio.vilca@upc.edu.pe\",\"dni\":\"09827309\",\"nombreCli\":\"Felix\"}";
           byte[] data2 = Encoding.UTF8.GetBytes(postdata2);
           HttpWebRequest req6 = (HttpWebRequest)WebRequest
-              .Create("http://localhost:1020/Clientes.svc/Clientes");
+              .Create("http://localhost:30000/Clientes.svc/Clientes");
           req6.Method = "PUT";
           req6.ContentLength = data2.Length;
           req6.ContentType = "application/json";
