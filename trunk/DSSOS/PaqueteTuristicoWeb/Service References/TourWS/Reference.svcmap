@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a34445c6-c693-46b6-ab24-f59bb825ef15" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20000/TourService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TourService.xsd" MetadataType="Schema" ID="4380e25a-e2c8-4514-b84e-36238b272ec9" SourceId="1" SourceUrl="http://localhost:20000/TourService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TourService1.xsd" MetadataType="Schema" ID="2480b235-8159-44e6-b55a-3c1dc252f10e" SourceId="1" SourceUrl="http://localhost:20000/TourService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TourService2.xsd" MetadataType="Schema" ID="d0c6308f-b631-47b6-8a2c-5489d06284b4" SourceId="1" SourceUrl="http://localhost:20000/TourService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TourService.disco" MetadataType="Disco" ID="dcd1ac1f-a0bb-4a71-beb2-caa3701c610b" SourceId="1" SourceUrl="http://localhost:20000/TourService.svc?disco" />
+    <MetadataFile FileName="TourService.wsdl" MetadataType="Wsdl" ID="dfe0668b-d8e4-491e-8c06-70c6c00472a4" SourceId="1" SourceUrl="http://localhost:20000/TourService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
