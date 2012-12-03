@@ -10,15 +10,14 @@ namespace RESTServices.dominio
     public class Cliente
     {
         [DataMember]
-        public String nombreCli { get; set; }
-
+        public int CodCliente { get; set; }
         [DataMember]
-        public String apellidoCli{ get; set; }
-
+        public string NombreCliente { get; set; }
         [DataMember]
-        public String dni { get; set; }
-
+        public string ApellidoCliente{ get; set; }
         [DataMember]
-        public String correo { get; set; }
+        public string DNI { get; set; }
+        [DataMember]
+        public string CorreoCliente { get; set; }
     }
 }

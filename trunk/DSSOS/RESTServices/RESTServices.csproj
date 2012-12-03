@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Agentes.svc" />
     <Content Include="Clientes.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -63,6 +64,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agentes.svc.cs">
+      <DependentUpon>Agentes.svc</DependentUpon>
+    </Compile>
     <Compile Include="Clientes.svc.cs">
       <DependentUpon>Clientes.svc</DependentUpon>
     </Compile>
@@ -71,12 +75,12 @@
     <Compile Include="dominio\Error.cs" />
     <Compile Include="dominio\Paquete.cs" />
     <Compile Include="dominio\Reserva.cs" />
-    <Compile Include="dominio\test.cs" />
     <Compile Include="dominio\TipoPaquete.cs" />
+    <Compile Include="IAgentes.cs" />
     <Compile Include="IClientes.cs" />
     <Compile Include="persistencia\ClienteDAO.cs" />
-    <Compile Include="persistencia\PaqueteDAO.cs" />
     <Compile Include="persistencia\ConexionUtil.cs" />
+    <Compile Include="persistencia\Funciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +94,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>1020</DevelopmentServerPort>
+          <DevelopmentServerPort>30000</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

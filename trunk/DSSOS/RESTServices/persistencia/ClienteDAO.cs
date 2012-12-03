@@ -19,14 +19,14 @@ namespace RESTServices.persistencia
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@nomCli", ClienteACrear.nombreCli));
-                    com.Parameters.Add(new SqlParameter("@apeCli", ClienteACrear.apellidoCli));
-                    com.Parameters.Add(new SqlParameter("@dniCli", ClienteACrear.dni));
-                    com.Parameters.Add(new SqlParameter("@correoCli", ClienteACrear.correo));
+                    com.Parameters.Add(new SqlParameter("@nomCli", ClienteACrear.NombreCliente));
+                    com.Parameters.Add(new SqlParameter("@apeCli", ClienteACrear.ApellidoCliente));
+                    com.Parameters.Add(new SqlParameter("@dniCli", ClienteACrear.DNI));
+                    com.Parameters.Add(new SqlParameter("@correoCli", ClienteACrear.CorreoCliente));
                     com.ExecuteNonQuery();
                 }
             }
-            clienteCreado = Obtener(ClienteACrear.dni);
+            clienteCreado = Obtener(ClienteACrear.DNI);
             return clienteCreado;
         }
 
@@ -34,7 +34,7 @@ namespace RESTServices.persistencia
         public Cliente Obtener(string dni)
         {
             Cliente clienteEncontrado = null;
-            string sql = "select NombreCliente, ApellidoCliente, DNI,CorreoCliente from cliente where dni=@dni";
+            string sql = "select NombreCliente, ApellidoCliente, DNI, CorreoCliente from cliente where dni=@dni";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -47,10 +47,10 @@ namespace RESTServices.persistencia
                         {
                             clienteEncontrado = new Cliente()
                             {
-                                nombreCli = (string)resultado["NombreCliente"],
-                                apellidoCli = (string)resultado["ApellidoCliente"],
-                                dni = (string)resultado["DNI"],
-                                correo = (string)resultado["CorreoCliente"],
+                                NombreCliente = (string)resultado["NombreCliente"],
+                                ApellidoCliente = (string)resultado["ApellidoCliente"],
+                                DNI = (string)resultado["DNI"],
+                                CorreoCliente = (string)resultado["CorreoCliente"],
                             };
                         }
                     }
@@ -70,14 +70,14 @@ namespace RESTServices.persistencia
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@dni", ClienteAModificar.dni));
-                    com.Parameters.Add(new SqlParameter("@nom", ClienteAModificar.nombreCli));
-                    com.Parameters.Add(new SqlParameter("@ape", ClienteAModificar.apellidoCli));
-                    com.Parameters.Add(new SqlParameter("@correo", ClienteAModificar.correo));
+                    com.Parameters.Add(new SqlParameter("@dni", ClienteAModificar.DNI));
+                    com.Parameters.Add(new SqlParameter("@nom", ClienteAModificar.NombreCliente));
+                    com.Parameters.Add(new SqlParameter("@ape", ClienteAModificar.ApellidoCliente));
+                    com.Parameters.Add(new SqlParameter("@correo", ClienteAModificar.CorreoCliente));
                     com.ExecuteNonQuery();
                 }
             }
-            clienteModif = Obtener(ClienteAModificar.dni);
+            clienteModif = Obtener(ClienteAModificar.DNI);
             return clienteModif;
         }
 
@@ -118,10 +118,10 @@ namespace RESTServices.persistencia
                         {
                             Cliente clienteEncontrado = new Cliente()
                             {
-                                nombreCli = (string)resultado["NombreCliente"],
-                                apellidoCli = (string)resultado["ApellidoCliente"],
-                                dni = (string)resultado["DNI"],
-                                correo = (string)resultado["CorreoCliente"],
+                                NombreCliente = (string)resultado["NombreCliente"],
+                                ApellidoCliente = (string)resultado["ApellidoCliente"],
+                                DNI = (string)resultado["DNI"],
+                                CorreoCliente = (string)resultado["CorreoCliente"],
                             };
                             clientesEncontrado.Add(clienteEncontrado);
                         }
