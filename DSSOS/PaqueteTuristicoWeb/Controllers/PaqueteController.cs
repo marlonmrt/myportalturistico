@@ -9,7 +9,9 @@ namespace PaqueteTuristicoWeb.Controllers
 {
     public class PaqueteController : Controller
     {
-
+        TourWS.TourServiceClient proxy = new TourWS.TourServiceClient();
+       
+        /*
         private List<TipoPaquete> CrearTiposPaquete()
         {
             List<TipoPaquete> tiposPaquete = new List<TipoPaquete>();
@@ -31,7 +33,9 @@ namespace PaqueteTuristicoWeb.Controllers
 
             return tiposPaquete;
         }
+        */
 
+        /*
         private TipoPaquete ObtenerTipoPaquete(int Codigo)
         {
             List<TipoPaquete> tiposPaquete = CrearTiposPaquete();
@@ -42,8 +46,10 @@ namespace PaqueteTuristicoWeb.Controllers
             });
             return model;
         }
+         * */
        //*****************************************************************************************
         
+        /*
         private List<Paquete> CrearPaquetes()
         {
             
@@ -132,6 +138,7 @@ namespace PaqueteTuristicoWeb.Controllers
             });
             return paquetes;
         }
+
         private Paquete ObtenerPaquete(int Codigo)
         {
             List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
@@ -189,6 +196,8 @@ namespace PaqueteTuristicoWeb.Controllers
             return model;
         }
 
+         * */
+
         // ****************************************************************************************
 
 
@@ -197,12 +206,13 @@ namespace PaqueteTuristicoWeb.Controllers
         // muestra página con listado de paquetes
         public ActionResult Index()
         {
+            /*
             // inicializo el listado de paquetes
             if (Session["paquetes"] == null)
                 Session["paquetes"] = CrearPaquetes();
             List<Paquete> model = (List<Paquete>)Session["paquetes"];
-
-            return View(model);
+            */
+            return View(proxy.ListarPaquetes());
         }
 
         //
@@ -210,7 +220,7 @@ namespace PaqueteTuristicoWeb.Controllers
         // muestra página con datos de un paquete
         public ActionResult Details(int id)
         {
-            Paquete model = ObtenerPaquete(id);
+            TourWS.Paquete model = proxy.ObtenerPaquete(id); 
             return View(model);
         }
 
@@ -220,14 +230,17 @@ namespace PaqueteTuristicoWeb.Controllers
         public ActionResult Create()
         {
 
-            var list = new SelectList(CrearTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete");
+            var list = new SelectList(proxy.ListarTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete");
             ViewData["tiposPaquete"] = list;
 
-            var list2 = new SelectList(CrearAgentes(), "CodAgente", "RazonSocial");
+            var list2 = new SelectList(proxy.ListarAgentes(), "CodAgente", "RazonSocial");
             ViewData["agentes"] = list2;
 
-            return View();
+            return View(proxy.ListarTiposPaquete());
         } 
+
+
+
 
         //
         // POST: /Paquete/Create
@@ -239,10 +252,10 @@ namespace PaqueteTuristicoWeb.Controllers
             {
                 int p = int.Parse(collection["tiposPaquete"]);
                 //obtenemos el tipoPaquete
-                TipoPaquete tipoPaquete = ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
+                TourWS.TipoPaquete tipoPaquete = proxy.ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
 
                 //obtenemos el agente
-                Agente agente = ObtenerAgente(int.Parse(collection["agentes"]));
+                TourWS.Agente agente = proxy.ObtenerAgente(int.Parse(collection["agentes"]));
 
                 //de la variable collection llenamos la lista de paquetes
                 List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
@@ -289,12 +302,12 @@ namespace PaqueteTuristicoWeb.Controllers
         //muestra página con los datos a editar
         public ActionResult Edit(int id)
         {
-            Paquete model = ObtenerPaquete(id);
+            TourWS.Paquete model = proxy.ObtenerPaquete(id);
             //hallamos el tipo de paquete elegido
-            var list = new SelectList( CrearTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete", model.TipoPaquete.CodTipoPaquete);
+            var list = new SelectList(proxy.ListarTiposPaquete(), "CodTipoPaquete", "NombreTipoPaquete", model.TipoPaquete.CodTipoPaquete);
             ViewData["tiposPaquete"] = list;
 
-            var list2 = new SelectList(CrearAgentes(), "CodAgente", "RazonSocial", model.Agente.CodAgente);
+            var list2 = new SelectList(proxy.ListarAgentes(), "CodAgente", "RazonSocial", model.Agente.CodAgente);
             ViewData["agentes"] = list2;
             
             return View(model);
@@ -311,21 +324,23 @@ namespace PaqueteTuristicoWeb.Controllers
                 // TODO: Add update logic here
                 int p = int.Parse(collection["tiposPaquete"]);
                 //obtenemos el tipoPaquete
-                TipoPaquete tipoPaquete = ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
+                TourWS.TipoPaquete tipoPaquete = proxy.ObtenerTipoPaquete(int.Parse(collection["tiposPaquete"]));
 
                  //obtenemos el agente
-                Agente agente = ObtenerAgente(int.Parse(collection["agentes"]));
-                
-                Paquete model = ObtenerPaquete(id);
+                TourWS.Agente agente = proxy.ObtenerAgente(int.Parse(collection["agentes"]));
+
+                TourWS.Paquete model = proxy.ObtenerPaquete(id);
 
                 model.TipoPaquete.CodTipoPaquete = tipoPaquete.CodTipoPaquete;
                 model.TipoPaquete.NombreTipoPaquete = tipoPaquete.NombreTipoPaquete;
                 
                 model.NombrePaquete = collection["NombrePaquete"];
+               /*
                 model.FechaInicio = collection["FechaInicio"];
                 model.FechaFin = collection["FechaFin"];
                 model.HoraInicio = collection["HoraInicio"];
                 model.HoraFin = collection["HoraFin"];
+                */
                 model.Descripcion = collection["Descripcion"];
                 model.Lugares = collection["Lugares"];
                 model.InformacionAdicional = collection["InformacionAdicional"];
@@ -352,7 +367,7 @@ namespace PaqueteTuristicoWeb.Controllers
  
         public ActionResult Delete(int id)
         {
-            Paquete model = ObtenerPaquete(id);
+            TourWS.Paquete model = proxy.ObtenerPaquete(id);
             return View(model);
         }
 
@@ -365,8 +380,11 @@ namespace PaqueteTuristicoWeb.Controllers
             try
             {
                 // TODO: Add delete logic here
+                /*
                 List<Paquete> paquetes = (List<Paquete>)Session["paquetes"];
                 paquetes.Remove(ObtenerPaquete(id));
+                 * */
+                proxy.EliminarPaquete(id);
                 return RedirectToAction("Index");
             }
             catch
