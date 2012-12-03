@@ -8,9 +8,9 @@ namespace PaqueteTuristicoWeb.Models
     public class Cliente
     {
         public int CodCliente { get; set; }
-        public String NombreCliente { get; set; }
-        public String ApellidoCliente { get; set; }
-        public String DNI { get; set; }
-        public String CorreoCliente { get; set; }
+        public string NombreCliente { get; set; }
+        public string ApellidoCliente { get; set; }
+        public string DNI { get; set; }
+        public string CorreoCliente { get; set; }
     }
 }
