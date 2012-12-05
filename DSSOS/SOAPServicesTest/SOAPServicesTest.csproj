@@ -89,6 +89,9 @@
     <WCFMetadataStorage Include="Service References\TourWS\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\TourWS\TourService.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\TourWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
