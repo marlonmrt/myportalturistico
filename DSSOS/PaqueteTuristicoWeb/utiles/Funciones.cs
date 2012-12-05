@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PaqueteTuristicoWeb.utiles
+namespace PaqueteTuristicoWeb.Utiles
 {
     public class Funciones
     {
