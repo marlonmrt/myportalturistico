@@ -38,7 +38,7 @@ namespace SOAPServicesTest
             DateTime FechaFin = new DateTime(2012, 12, 25);
 
             //2. Invoca el método a probar del objeto instanciado
-            Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Paquete de feriado", FechaIni, FechaFin,8,20,"Un lugar de ensueño a 5 horas de Lima","Cañete","al correo informes@gmail.com",60, 20,0,ag1.CodAgente);
+            Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Paquete de fiestas navideñas", FechaIni, FechaFin,8,20,"Un lugar de ensueño a 5 horas de Lima","Cañete","al correo informes@gmail.com",60, 20,0,ag1.CodAgente);
 
             //busco nuevamente el total de paquetesantes de la inserción
             int total2 = 0;
