@@ -239,9 +239,6 @@ namespace PaqueteTuristicoWeb.Controllers
             return View(proxy.ListarTiposPaquete());
         } 
 
-
-
-
         //
         // POST: /Paquete/Create
         //recibe los datos del formulario y realiza creación

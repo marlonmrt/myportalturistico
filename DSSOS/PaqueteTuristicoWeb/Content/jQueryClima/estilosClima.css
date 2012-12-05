@@ -1,0 +1,36 @@
+﻿#weather {
+			position: absolute; height: 300px; width: 300px; background: url(weather.png) no-repeat; z-index: 1500;
+		}
+		#weather a {
+			color: #E3068D;
+		}
+		#weather a:hover {
+			color: #FF71D1;
+		}
+		#weather h1 {
+			width: 250px; margin: 48px auto 6px; font-size: 18px; font-weight: normal; line-height: 1.0; letter-spacing: -1px; text-align: center;
+		}
+		#weather .forecast {
+			width: 250px; margin: 0 auto;
+		}
+		#weather .forecast img {
+			position: absolute; left: 60px;
+		}
+		#weather .forecast p {
+			margin: 0 50px 6px; text-align: center;
+		}
+		#weather .forecast p strong {
+			display: block; padding-top: 125px; color: #000000; font-size: 36px; font-weight: normal; line-height: 1.0;
+		}
+		#weather .forecast p em {
+			color: #000000; font-style: normal; font-weight: bold;
+		}
+		#weather a.previous, #weather a.next {
+			position: absolute; top: 48px; left: 0; font-size: 18px; font-weight: bold; line-height: 1.0;
+		}
+		#weather a.previous {
+			left: 70px;
+		}
+		#weather a.next {
+			left: 220px;
+		}

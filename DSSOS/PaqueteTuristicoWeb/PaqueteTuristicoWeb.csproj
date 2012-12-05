@@ -96,6 +96,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jQueryClima\estilosClima.css" />
     <Content Include="Content\estilos.css" />
     <Content Include="Content\images\body_bg.jpg" />
     <Content Include="Content\images\body_bot.jpg" />
@@ -109,6 +110,10 @@
     <Content Include="Content\images\pic_3.gif" />
     <Content Include="Content\images\travelagency_10.jpg" />
     <Content Include="Content\images\travelagency_18.jpg" />
+    <Content Include="Content\jQueryClima\weather.png" />
+    <Content Include="Content\jQueryClima\jquery-1.6.4.min.js" />
+    <Content Include="Content\jQueryClima\jquery.simpleWeather-1.8.min.js" />
+    <Content Include="Content\jQueryClima\wellcome.js" />
     <Content Include="Global.asax" />
     <None Include="Service References\TourWS\PaqueteTuristicoWeb.TourWS.Agente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

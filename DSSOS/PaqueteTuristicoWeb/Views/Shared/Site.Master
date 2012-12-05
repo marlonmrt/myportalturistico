@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link href="../../Content/estilos.css" rel="stylesheet" type="text/css" charset="utf-8"/>
+    <link href="../../Content/jQueryClima/estilosClima.css" rel="stylesheet" type="text/css" charset="utf-8"/>
 </head>
 
 <body>
@@ -57,6 +58,18 @@
   </div>
 </div>
 <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+<script type="text/javascript" src="../../Content/jQueryClima/jquery-1.6.4.min.js"></script>
+  
+      <div id="weather" data-locations="Anta, Cajamarca, Chachapoyas, Chiclayo, Iquitos, Pisco, Piura, Pucallpa, Talara, Tarapoto, Trujillo, Tumbes">
+        <h1></h1>
+        <div class="forecast">
+        </div>
+        <a class="previous" href="#">&laquo;</a>
+        <a class="next" href="#">&raquo;</a>
+      </div>
+<script type="text/javascript" src="../../Content/jQueryClima/jquery.simpleWeather-1.8.min.js"></script>
+  <script type="text/javascript" src="../../Content/jQueryClima/wellcome.js"></script>
+
 
 </body>
 </html>
