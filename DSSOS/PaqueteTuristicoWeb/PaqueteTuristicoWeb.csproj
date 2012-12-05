@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="utiles\Funciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\jQueryClima\estilosClima.css" />
