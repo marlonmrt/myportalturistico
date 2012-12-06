@@ -41,6 +41,13 @@ namespace RESTServices.persistencia
         {
             return Regex.Match(dni, @"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$").Success;
         }
+
+       // Función que valida que un RUC sea correcto en PERU
+         
+        public static bool ValidaRUC(string ruc)
+        {
+            return Regex.Match(ruc, @"^[1-2][0][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$").Success;
+        }
     }
 
 }

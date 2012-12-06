@@ -1,1 +1,7 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="RESTServices.Agentes" CodeBehind="Agentes.svc.cs" %>
+﻿<%@ ServiceHost 
+Language="C#" 
+Debug="true" 
+Service="RESTServices.Agentes" 
+CodeBehind="Agentes.svc.cs" 
+Factory="System.ServiceModel.Activation.WebServiceHostFactory"
+%>

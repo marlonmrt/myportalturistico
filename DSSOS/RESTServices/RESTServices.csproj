@@ -80,6 +80,7 @@
     <Compile Include="IClientes.cs" />
     <Compile Include="persistencia\ClienteDAO.cs" />
     <Compile Include="persistencia\ConexionUtil.cs" />
+    <Compile Include="persistencia\AgenteDAO.cs" />
     <Compile Include="persistencia\Funciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
