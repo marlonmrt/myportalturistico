@@ -74,10 +74,12 @@ namespace ReservaTuristicoWeb.Controllers
                 CodPaquete = 1,
                 TipoPaquete = fullDay,
                 NombrePaquete = "Full Day Caral",
+                /*
                 FechaInicio = "18/03/2012",
                 FechaFin = "18/03/2012",
                 HoraInicio = "8 am",
                 HoraFin = "8 pm",
+                 * */
                 Descripcion = "Viva la Aventura del Canotaje full day Lunahuana",
                 Lugares = "Lunahuana",
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
@@ -92,10 +94,12 @@ namespace ReservaTuristicoWeb.Controllers
                 CodPaquete = 2,
                 TipoPaquete = fullDay,
                 NombrePaquete = "Full Day Paracas",
+                /*
                 FechaInicio = "18/06/2012",
                 FechaFin = "18/06/2012",
                 HoraInicio = "8 am",
                 HoraFin = "8 pm",
+                 * */
                 Descripcion = "Descubre el encanto de las Dunas de Ica Full Day Paracas/Ica",
                 Lugares = "Paracas, Islas Ballestas",
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
@@ -109,10 +113,13 @@ namespace ReservaTuristicoWeb.Controllers
                 CodPaquete = 3,
                 TipoPaquete = excursion,
                 NombrePaquete = "Tour Noches de Luna Lllena",
+               
+                /*
                 FechaInicio = "18/03/2012",
                 FechaFin = "18/03/2012",
                 HoraInicio = "8 am",
                 HoraFin = "8 pm",
+                 * */
                 Descripcion = "Tour nocturno al cementerio Presbítero Maestro",
                 Lugares = "cementerio Presbítero Maestro, Lima",
                 InformacionAdicional = "Informes agenciaifc@hotmail.com teléfonos 451-8567, 451-8568",
