@@ -58,7 +58,9 @@
             <p>
                 <input type="submit" value="Registrar Cliente" />
             </p>
-              <p style="color:Red; font-weight:bold"><%= ViewData["mensaje"] %></p>
+            
+            <!-- esto es donde se ve el mensaje  -->
+            <p style="color:Red; font-weight:bold"><%= ViewData["mensaje"] %></p>
         </fieldset>
 
     <% } %>
