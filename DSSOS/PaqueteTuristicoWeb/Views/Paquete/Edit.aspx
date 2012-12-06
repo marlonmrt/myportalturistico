@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<PaqueteTuristicoWeb.Models.Paquete>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<PaqueteTuristicoWeb.TourWS.Paquete>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Portal Turístico S.O.S.
@@ -19,7 +19,7 @@
                 Código del paquete
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.CodPaquete)%>
+                <%: Html.TextBoxFor(model => model.CodPaquete, new { @readonly = true })%>  
                 <%: Html.ValidationMessageFor(model => model.CodPaquete)%>
             </div>
              <div class="editor-label">
@@ -40,7 +40,7 @@
                 Fecha de Inicio
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FechaInicio, new { @style = "width:100px" }) %>
+                <%: Html.TextBoxFor(model => model.FechaInicio, new { @class = "datepicker", Value = String.Format("{0:dd/MM/yyyy}", Model.FechaInicio), @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.FechaInicio) %>
             </div>
             
@@ -48,7 +48,8 @@
                 Fecha de Fin
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FechaFin, new { @style = "width:100px" }) %>
+                
+                <%: Html.TextBoxFor(model => model.FechaFin, new { @class = "datepicker", Value = String.Format("{0:dd/MM/yyyy}", Model.FechaFin), @style = "width:100px" })%>
                 <%: Html.ValidationMessageFor(model => model.FechaFin) %>
             </div>
             
@@ -124,6 +125,8 @@
             <p>
                 <input type="submit" value="Grabar Paquete" />
             </p>
+             <!-- esto es donde se ve el mensaje  -->
+            <p style="color:Red; font-weight:bold"><%= ViewData["mensaje"] %></p>
         </fieldset>
 
     <% } %>
