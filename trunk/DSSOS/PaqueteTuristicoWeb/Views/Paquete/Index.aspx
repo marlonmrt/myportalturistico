@@ -18,7 +18,7 @@
        <td style="width: 144px"><strong>Nombre del Paquete</strong></td><td colspan="3"><%: item.NombrePaquete %></td>
     </tr>  
     <tr>
-       <td style="width: 144px"><strong>Fecha de Inicio</strong></td><td> <%: item.FechaInicio %></td><td><strong>Fecha de Fin</strong></td><td> <%: item.FechaFin %></td>
+       <td style="width: 144px"><strong>Fecha de Inicio</strong></td><td> <%:PaqueteTuristicoWeb.Utiles.Funciones.creaFechaString(item.FechaInicio)%></td><td><strong>Fecha de Fin</strong></td><td> <%: PaqueteTuristicoWeb.Utiles.Funciones.creaFechaString(item.FechaFin) %></td>
     </tr>
     <tr>
        <td style="width: 144px"><strong>Hora de Inicio</strong></td><td><%: item.HoraInicio %></td><td><strong>Hora de Fin</strong></td><td><%: item.HoraFin %></td>

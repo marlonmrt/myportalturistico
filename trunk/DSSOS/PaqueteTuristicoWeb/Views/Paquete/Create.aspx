@@ -15,6 +15,8 @@
         <fieldset>
             <legend>Campos</legend>
             
+           <!-- còdigo de paquete no se pasa porque al crear se origina en la base
+                para editar si se pasa
             <div class="editor-label">
                 Código del Paquete
             </div>
@@ -22,6 +24,8 @@
                 <%: Html.TextBoxFor(model => model.CodPaquete) %>
                 <%: Html.ValidationMessageFor(model => model.CodPaquete) %>
             </div>
+
+            -->
             <div class="editor-label">
                Tipo de Paquete
             </div>
@@ -126,6 +130,9 @@
             <p>
                 <input type="submit" value="Crear Paquete" />
             </p>
+
+             <!-- esto es donde se ve el mensaje  -->
+            <p style="color:Red; font-weight:bold"><%= ViewData["mensaje"] %></p>
         </fieldset>
 
     <% } %>
