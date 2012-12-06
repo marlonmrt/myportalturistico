@@ -132,6 +132,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Agente\Index.aspx" />
     <Content Include="Views\Cliente\Create.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Paquete\Create.aspx" />
