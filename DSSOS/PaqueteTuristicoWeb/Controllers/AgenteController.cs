@@ -32,7 +32,7 @@ namespace PaqueteTuristicoWeb.Controllers
         }
 
         //
-        // GET: /Cliente/Create
+        // GET: /Agente/Create
 
         public ActionResult Create()
         {
@@ -43,12 +43,12 @@ namespace PaqueteTuristicoWeb.Controllers
         // POST: /Agente/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(FormCollection collection)
         {
             try
             {
                 //aqui se rellenan los datos que viene de la pantalla
-                string postdata = "{\"RazonSocial\":\"" + collection["RazonSocial"] + "\",\"Direccion\":\"" + collection["Direccion"] + "\",\"RUC\":\"" + collection["RUC"] + "\",\"CorreoAgente\":\"" + collection["CorreoAgente"] + "\"}";
+                string postdata = "{\"RazonSocial\":\"" + collection["RazonSocial"] + "\",\"RUC\":\"" + collection["RUC"] + "\",\"CorreoAgente\":\"" + collection["CorreoAgente"] + "\",\"Direccion\":\"" + collection["Direccion"] + "\",\"NroCuentaInterbancaria\":\"" + collection["NroCuentaInterbancaria"] + "\"}";
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService);
                 req.Method = "POST";
@@ -84,14 +84,6 @@ namespace PaqueteTuristicoWeb.Controllers
                 ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
                 return View();
             }
-        }
-
-        //
-        // GET: /Agente/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
         }
 
         //

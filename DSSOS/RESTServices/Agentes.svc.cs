@@ -19,23 +19,23 @@ namespace RESTServices
         {
             //esta primera parte valida si e ha ingresado algun campo vacío
             //para nuestro caso, deben ingresarse todos, sino, sale error
-            if (agenteACrear.RUC.Equals("") || agenteACrear.RazonSocial.Equals("") || agenteACrear.Direccion.Equals("") || agenteACrear.CorreoAgente.Equals(""))
+            if (agenteACrear.RUC.Equals("") || agenteACrear.RazonSocial.Equals("") || agenteACrear.Direccion.Equals("") || agenteACrear.CorreoAgente.Equals("") || agenteACrear.NroCuentaInterbancaria.Equals(""))
                 throw new WebFaultException<Error>(
                     new Error()
                     {
                         CodigoNegocio = "Error1",
-                        MensajeNegocio = "La información ingresada debe estar completa"
+                        MensajeNegocio = "Se requiere el ingreso de todos los datos"
                     },
                     HttpStatusCode.BadRequest);
 
-            // validamos si el ruc ingresado es uno correcto
+            // validamos si el ruc ingresado es correcto
             //uso una Funciones que coloqué en la clase decimal funciones
             if (Funciones.ValidaRUC(agenteACrear.RUC.Trim()) == false)
                 throw new WebFaultException<Error>(
                     new Error()
                     {
                         CodigoNegocio = "Error2",
-                        MensajeNegocio = "El RUC ingresado es incorrecto."
+                        MensajeNegocio = "RUC no valido"
                     },
                     HttpStatusCode.InternalServerError);
 
@@ -46,7 +46,7 @@ namespace RESTServices
                     new Error()
                     {
                         CodigoNegocio = "Error3",
-                        MensajeNegocio = "El correo ingresado es incorrecto."
+                        MensajeNegocio = "El correo es incorrecto."
                     },
                     HttpStatusCode.InternalServerError);
 
@@ -61,6 +61,27 @@ namespace RESTServices
                     },
                     HttpStatusCode.InternalServerError);
 
+            //ahora validamnos si el correo ya esta registrado en la DB
+            Agente existecorreo = ObtenerCorreo(agenteACrear.CorreoAgente);
+            if (existecorreo != null)
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error5",
+                        MensajeNegocio = "El Correo " + agenteACrear.CorreoAgente + " ya existe !!!!!"
+                    },
+                    HttpStatusCode.InternalServerError);
+
+            // validamos si el CCI ingresado es correcto deben ser numeros y 20 digitos
+            if (Funciones.ValidaCCI(agenteACrear.NroCuentaInterbancaria.Trim()) == false)
+                throw new WebFaultException<Error>(
+                    new Error()
+                    {
+                        CodigoNegocio = "Error6",
+                        MensajeNegocio = "Cuenta Interbancaria no valido"
+                    },
+                    HttpStatusCode.InternalServerError);
+
 
             return dao.Crear(agenteACrear);
         }
@@ -70,6 +91,10 @@ namespace RESTServices
             return dao.Obtener(ruc);
         }
 
+        public Agente ObtenerCorreo(string correo)
+        {
+            return dao.ObtenerCorreo(correo);
+        }
 
         public List<Agente> ListarAgentes()
         {
