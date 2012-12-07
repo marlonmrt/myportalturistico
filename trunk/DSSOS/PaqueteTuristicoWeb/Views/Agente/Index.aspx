@@ -30,15 +30,7 @@
                 <%: Html.TextBoxFor(model => model.RazonSocial, new { @style = "width:300px" })%>
                 <%: Html.ValidationMessageFor(model => model.RazonSocial)%>
             </div>
-            
-            <div class="editor-label">
-                Dirección
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Direccion, new { @style = "width:300px" })%>
-                <%: Html.ValidationMessageFor(model => model.Direccion)%>
-            </div>
-            
+                      
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.RUC) %>
             </div>
@@ -53,6 +45,22 @@
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.CorreoAgente, new { @style = "width:300px" })%>
                 <%: Html.ValidationMessageFor(model => model.CorreoAgente)%>
+            </div>
+
+            <div class="editor-label">
+                Dirección
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.Direccion, new { @style = "width:300px" })%>
+                <%: Html.ValidationMessageFor(model => model.Direccion)%>
+            </div>
+
+            <div class="editor-label">
+                Cta. Interbancaria
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.NroCuentaInterbancaria, new { @style = "width:300px" })%>
+                <%: Html.ValidationMessageFor(model => model.NroCuentaInterbancaria)%>
             </div>
             
             <p>

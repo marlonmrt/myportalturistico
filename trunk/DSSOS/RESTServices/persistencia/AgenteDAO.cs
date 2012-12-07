@@ -12,14 +12,13 @@ namespace RESTServices.persistencia
         public Agente Crear(Agente AgenteACrear)
         {
             Agente agenteCreado = null;
-            string sql = "insert into Agente (CodAgente, RasonSocial, RUC, CorreoAgente, Direccion, NroCuentaInterbancaria ) " +
-                    "values (@codagente, @razonsocial, @ruc, @correoagente, @direccion, @nrocta)";
+            string sql = "insert into Agente (RazonSocial, RUC, CorreoAgente, Direccion, NroCuentaInterbancaria ) " +
+                    "values (@razonsocial, @ruc, @correoagente, @direccion, @nrocta)";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
-                {
-                    com.Parameters.Add(new SqlParameter("@codagente", AgenteACrear.CodAgente));
+                {                    
                     com.Parameters.Add(new SqlParameter("@razonsocial", AgenteACrear.RazonSocial));
                     com.Parameters.Add(new SqlParameter("@ruc", AgenteACrear.RUC));
                     com.Parameters.Add(new SqlParameter("@correoagente", AgenteACrear.CorreoAgente));
@@ -36,7 +35,7 @@ namespace RESTServices.persistencia
         public Agente Obtener(string ruc)
         {
             Agente agenteCreado = null;
-            string sql = "select Razonsocial, Ruc, Direccion, CorreoAgente from Agente where ruc=@ruc";
+            string sql = "select Razonsocial, Ruc, Direccion, CorreoAgente, NroCuentaInterbancaria from Agente where ruc=@ruc";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -53,12 +52,43 @@ namespace RESTServices.persistencia
                                 RUC = (string)resultado["Ruc"],
                                 Direccion = (string)resultado["Direccion"],
                                 CorreoAgente = (string)resultado["CorreoAgente"],
+                                NroCuentaInterbancaria = (string)resultado["NroCuentaInterbancaria"],
                             };
                         }
                     }
                 }
             }
             return agenteCreado;
+        }
+
+
+        public Agente ObtenerCorreo(string correo)
+        {
+            Agente correoCreado = null;
+            string sql = "select Razonsocial, Ruc, Direccion, CorreoAgente, NroCuentaInterbancaria from Agente where correoagente=@correoagente";
+            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand(sql, con))
+                {
+                    com.Parameters.Add(new SqlParameter("@correoagente", correo));
+                    using (SqlDataReader resultado = com.ExecuteReader())
+                    {
+                        if (resultado.Read())
+                        {
+                            correoCreado = new Agente()
+                            {
+                                RazonSocial = (string)resultado["RazonSocial"],
+                                RUC = (string)resultado["Ruc"],
+                                Direccion = (string)resultado["Direccion"],
+                                CorreoAgente = (string)resultado["CorreoAgente"],
+                                NroCuentaInterbancaria = (string)resultado["NroCuentaInterbancaria"],
+                            };
+                        }
+                    }
+                }
+            }
+            return correoCreado;
         }
 
         /*
@@ -109,7 +139,7 @@ namespace RESTServices.persistencia
         {
             List<Agente> agentesEncontrado = null;
             agentesEncontrado = new List<Agente>();
-            string sql = "select RazonSocial, Ruc, Direccion, CorreoCliente from agente";
+            string sql = "select RazonSocial, Ruc, Direccion, CorreoCliente, NroCuentaInterbancaria from agente";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
