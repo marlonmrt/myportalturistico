@@ -148,8 +148,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+<<<<<<< .mine
+    <Content Include="Views\Agente\Delete.aspx" />
+    <Content Include="Views\Agente\Edit.aspx" />
+    <Content Include="Views\Agente\Create.aspx" />
+    <Content Include="Views\Agente\Details.aspx" />
+=======
     <Content Include="Images\icon_twitter.png" />
     <Content Include="Images\twitter_signin.png" />
+>>>>>>> .r90
     <Content Include="Views\Agente\Index.aspx" />
     <Content Include="Views\Cliente\Create.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
