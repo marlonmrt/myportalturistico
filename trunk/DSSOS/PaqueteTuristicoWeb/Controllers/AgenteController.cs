@@ -20,15 +20,27 @@ namespace PaqueteTuristicoWeb.Controllers
         // GET: /Agente/
         public ActionResult Index()
         {
-            return View();
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService);
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string agentesJson = reader.ReadToEnd();
+            List<Agente> agentes = js.Deserialize<List<Agente>>(agentesJson);
+            return View(agentes);
         }
 
         //
         // GET: /Agente/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService + "/" + id);
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string agenteJson = reader.ReadToEnd();
+            Agente agente = js.Deserialize<Agente>(agenteJson);
+            return View(agente);
         }
 
         //
@@ -43,7 +55,7 @@ namespace PaqueteTuristicoWeb.Controllers
         // POST: /Agente/Create
 
         [HttpPost]
-        public ActionResult Index(FormCollection collection)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
@@ -86,16 +98,33 @@ namespace PaqueteTuristicoWeb.Controllers
             }
         }
 
-        //
-        // POST: /Agente/Edit/5
+        // GET: /Agente/Edit/5 
+        public ActionResult Edit(string id)
+        {
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService + "/" + id);
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string agenteJson = reader.ReadToEnd();
+            Agente agente = js.Deserialize<Agente>(agenteJson);
+            return View(agente);
+        }
 
+        // POST: /Alumno/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
-
+                string postdata = "{\"RazonSocial\":\"" + collection["RazonSocial"] + "\",\"RUC\":\"" + collection["RUC"] + "\",\"CorreoAgente\":\"" + collection["CorreoAgente"] + "\",\"Direccion\":\"" + collection["Direccion"] + "\",\"NroCuentaInterbancaria\":\"" + collection["NroCuentaInterbancaria"] + "\"}";
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService);
+                req.Method = "PUT";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                var res = (HttpWebResponse)req.GetResponse();
                 return RedirectToAction("Index");
             }
             catch
@@ -104,24 +133,33 @@ namespace PaqueteTuristicoWeb.Controllers
             }
         }
 
-        //
-        // GET: /Agente/Delete/5
-
-        public ActionResult Delete(int id)
+        // GET: /Alumno/Delete/5
+        public ActionResult Delete(string id)
         {
-            return View();
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService + "/" + id);
+            req.Method = "GET";
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string agenteJson = reader.ReadToEnd();
+            Agente agente = js.Deserialize<Agente>(agenteJson);
+            return View(agente);
         }
 
-        //
-        // POST: /Agente/Delete/5
-
+        // POST: /Alumno/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                string postdata = "\"" + id + "\"";
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(agenteRESTService);
+                req.Method = "DELETE";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                var res = (HttpWebResponse)req.GetResponse();
                 return RedirectToAction("Index");
             }
             catch
@@ -129,5 +167,8 @@ namespace PaqueteTuristicoWeb.Controllers
                 return View();
             }
         }
+
+  
+
     }
 }
