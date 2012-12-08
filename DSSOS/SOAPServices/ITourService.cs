@@ -48,16 +48,17 @@ namespace SOAPServices
         void EliminarPaquete(int codigo);
         
         //*********Reserva**********
-        //[OperationContract]
-        //Reserva CrearReserva(string Estado, string FechaReserva);
-        //[OperationContract]
-        //Reserva ObtenerReserva(int codigo);
-        //[OperationContract]
-        //Reserva ModificarReserva(int codigo, string Estado, string FechaReserva);
-        //[OperationContract]
-        //void EliminarReserva(int codigo);
-        //[OperationContract]
-        //List<Reserva> ListarReservas();
+        [OperationContract]
+        Reserva CrearReserva(int codPaquete, int codCliente, string Estado, DateTime FechaReserva);
+        [OperationContract]
+        Reserva ObtenerReserva(int CodReserva);
+        [OperationContract]
+        Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, DateTime FechaReserva);
+        [OperationContract]
+        void EliminarReserva(int CodReserva);
+        [OperationContract]
+        List<Reserva> ListarReservas();
+
 
     }
 }

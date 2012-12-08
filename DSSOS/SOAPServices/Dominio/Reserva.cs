@@ -18,7 +18,7 @@ namespace SOAPServices.Dominio
         [DataMember]
         public String Estado { get; set; }  //R: reservado, C: confirmado
         [DataMember]
-        public String FechaReserva { get; set; }
+        public DateTime FechaReserva { get; set; }
 
     }
 }

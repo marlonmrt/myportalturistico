@@ -11,6 +11,6 @@ namespace PaqueteTuristicoWeb.Models
         public Paquete Paquete { get; set; }
         public Cliente Cliente { get; set; }
         public String Estado { get; set; }  //R: reservado, C: confirmado
-        public String FechaReserva { get; set; }
+        public DateTime FechaReserva { get; set; }
     }
 }

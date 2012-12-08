@@ -70,6 +70,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Dominio\TipoPaquete.hbm.xml" />
+    <Content Include="Dominio\Cliente.hbm.xml" />
+    <Content Include="Dominio\Reserva.hbm.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="TourService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -88,10 +92,12 @@
     <Compile Include="ITourService.cs" />
     <Compile Include="Persistencia\AgenteDAO.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
+    <Compile Include="Persistencia\ClienteDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\FuncionesSOAP.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PaqueteDAO.cs" />
+    <Compile Include="Persistencia\ReservaDAO.cs" />
     <Compile Include="Persistencia\TipoPaqueteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TourService.svc.cs">
