@@ -7,6 +7,7 @@
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link href="../../Content/estilos.css" rel="stylesheet" type="text/css" charset="utf-8"/>
     <link href="../../Content/jQueryClima/estilosClima.css" rel="stylesheet" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/cupertino/jquery-ui.css" type="text/css" />
 </head>
 
 <body>
@@ -14,12 +15,28 @@
 <div id="wrapper">
   <div id="left">
     <h1>Paquetes Turísticos S.O.S.</h1>
-    <div id="copyright">
-      <p>Copyright Information goes here.</p>
-      <p>designed by <a href="http://www.freewebsitetemplates.com">GrupoSOS</a></p>
-    </div>
   </div>
   <div id="right">
+         <form id="Form1" runat="server">
+         <div class="page">
+        <div class="header">
+  <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        <div class="login-buttons">
+                            <div id="twitter_login"></div>
+                        </div>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <p>Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>! <asp:Image id="profileImage" Width="32" Height="32" ImageUrl="" AlternateText="" style="margin-left:5px;float:right;" runat="server" Visible="false" /></p>
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+               </div>
+               </div>
+              </div>
+            </form>
+          
     <div id="nav">
        <ul>
         <li class="selected"><%: Html.ActionLink("Paquetes Turísticos", "Index", "Paquete")%></li>
@@ -57,7 +74,6 @@
     </div>
   </div>
 </div>
-<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
 <script type="text/javascript" src="../../Content/jQueryClima/jquery-1.6.4.min.js"></script>
   
       <div id="weather" data-locations="Anta, Cajamarca, Chachapoyas, Chiclayo, Iquitos, Pisco, Piura, Pucallpa, Talara, Tarapoto, Trujillo, Tumbes">
@@ -67,9 +83,25 @@
         <a class="previous" href="#">&laquo;</a>
         <a class="next" href="#">&raquo;</a>
       </div>
-<script type="text/javascript" src="../../Content/jQueryClima/jquery.simpleWeather-1.8.min.js"></script>
-  <script type="text/javascript" src="../../Content/jQueryClima/wellcome.js"></script>
+   
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function () {
+          $(".login-buttons").tabs({ fx: { height: 'toggle', opacity: 'toggle'} }).show();
+          if (document.getElementById("twitter_login")) {
+             var button = document.createElement("button");
+             button.id = "twitter_login_button";
+             button.setAttribute("style", "background:none;border:none;cursor:pointer;padding:0;");
+             button.onclick = function () { window.open("/auth/auth.aspx?twitterauth=true", "TwitterLoginWindow", "width=800,height=700,left=150,top=100,scrollbar=no,resize=no"); return false; };
+             button.innerHTML = "<img src='images/twitter_signin.png' style='margin:0;'>";
+             document.getElementById("twitter_login").appendChild(button);
+          }
+       });
+    </script>
 
+   <script type="text/javascript" src="../../Content/jQueryClima/jquery.simpleWeather-1.8.min.js"></script>
+   <script type="text/javascript" src="../../Content/jQueryClima/wellcome.js"></script>
 
 </body>
 </html>
