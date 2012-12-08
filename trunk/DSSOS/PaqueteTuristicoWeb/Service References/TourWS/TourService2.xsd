@@ -144,4 +144,77 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="CrearReserva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPaquete" type="xs:int" />
+        <xs:element minOccurs="0" name="codCliente" type="xs:int" />
+        <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaReserva" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearReservaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="CrearReservaResult" nillable="true" type="q9:Reserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerReserva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodReserva" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerReservaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="ObtenerReservaResult" nillable="true" type="q10:Reserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarReserva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodReserva" type="xs:int" />
+        <xs:element minOccurs="0" name="codPaquete" type="xs:int" />
+        <xs:element minOccurs="0" name="codCliente" type="xs:int" />
+        <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaReserva" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarReservaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="ModificarReservaResult" nillable="true" type="q11:Reserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarReserva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodReserva" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarReservaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarReservas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarReservasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="ListarReservasResult" nillable="true" type="q12:ArrayOfReserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

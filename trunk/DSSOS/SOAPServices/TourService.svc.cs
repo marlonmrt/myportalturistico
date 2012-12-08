@@ -47,7 +47,29 @@ namespace SOAPServices
                 return paqueteDAO;
             }
         }
-        
+
+        private ReservaDAO reservaDAO = null;
+        private ReservaDAO ReservaDAO 
+        {
+            get
+            {
+                if (reservaDAO == null)
+                    reservaDAO = new ReservaDAO();
+                return reservaDAO;
+            }
+        }
+
+        private ClienteDAO clienteDAO = null;
+        private ClienteDAO ClienteDAO
+        {
+            get
+            {
+                if (clienteDAO == null)
+                    clienteDAO = new ClienteDAO();
+                return clienteDAO;
+            }
+        }
+
         //*****************************************************************
         
         public TipoPaquete ObtenerTipoPaquete(int codigo)
@@ -202,8 +224,55 @@ namespace SOAPServices
             return PaqueteDAO.ListarTodos().ToList();
         }
         //*****************************************************************
-        
-        
+
+        public Reserva CrearReserva(int codPaquete, int codCliente, string estado, DateTime fechaReserva)
+        {
+            Paquete paqueteExistente = paqueteDAO.Obtener(codPaquete);
+            Cliente clienteExistente = clienteDAO.Obtener(codCliente);
+
+            Reserva reservaACrear = new Reserva()
+            {
+                Paquete = paqueteExistente,
+                Cliente = clienteExistente,
+                Estado = estado,
+                FechaReserva = fechaReserva
+
+
+            };
+            return ReservaDAO.Crear(reservaACrear);
+        }
+
+        public Reserva ObtenerReserva(int codReserva) 
+        {
+            return ReservaDAO.Obtener(codReserva);
+        }
+        public Reserva ModificarReserva(int codReserva, int codPaquete, int codCliente, string estado, DateTime fechaReserva) 
+        {
+            Reserva reservaExistente = reservaDAO.Obtener(codReserva);
+            Paquete paqueteExistente = paqueteDAO.Obtener(codPaquete);
+            Cliente clienteExistente = clienteDAO.Obtener(codCliente); 
+
+            Reserva reservaAModificar = new Reserva()
+            {
+                CodReserva = codReserva,
+                Paquete = paqueteExistente,
+                Cliente = clienteExistente,
+                Estado = estado,
+                FechaReserva = fechaReserva
+
+
+            };
+            return ReservaDAO.Modificar(reservaAModificar);
+        }
+        public void EliminarReserva(int codReserva) 
+        {
+            Reserva reservaExistente = ReservaDAO.Obtener(codReserva);
+            ReservaDAO.Eliminar(reservaExistente);
+        }
+        public List<Reserva> ListarReservas()
+        {
+            return ReservaDAO.ListarTodos().ToList();
+        }
         #endregion
     }
 }

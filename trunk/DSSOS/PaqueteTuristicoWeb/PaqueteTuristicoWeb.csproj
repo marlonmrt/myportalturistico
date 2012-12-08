@@ -135,6 +135,9 @@
     <None Include="Service References\TourWS\PaqueteTuristicoWeb.TourWS.Paquete.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\TourWS\PaqueteTuristicoWeb.TourWS.Reserva.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\TourWS\PaqueteTuristicoWeb.TourWS.TipoPaquete.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

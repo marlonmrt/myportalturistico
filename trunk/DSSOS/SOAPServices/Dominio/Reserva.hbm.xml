@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SOAPServices"
+                   namespace="SOAPServices.Dominio"
+                   default-lazy="false">
+	<class name="Reserva" table="Reserva">
+		<id name="CodReserva" column="CodReserva">
+			<generator class="identity" />
+		</id>
+		<many-to-one name="Paquete" column="CodPaquete" />
+		<many-to-one name="Cliente" column="CodCliente" />
+		<property name="Estado" column="Estado" />
+		<property name="FechaReserva" column="FechaReserva" />
+	</class>
+</hibernate-mapping>
