@@ -22,8 +22,17 @@ namespace RESTServices
         Agente ObtenerAgente(string ruc);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "TodosAgentes", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "PUT", UriTemplate = "Agentes", ResponseFormat = WebMessageFormat.Json)]
+        Agente ModificarAgente(Agente agenteAModificar);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "Agentes", ResponseFormat = WebMessageFormat.Json)]
+        void EliminarAgente(string ruc);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "Agentes", ResponseFormat = WebMessageFormat.Json)]
         List<Agente> ListarAgentes();
+
     }
 }
 
