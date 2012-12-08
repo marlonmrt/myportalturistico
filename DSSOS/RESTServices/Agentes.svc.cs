@@ -96,6 +96,16 @@ namespace RESTServices
             return dao.ObtenerCorreo(correo);
         }
 
+        public Agente ModificarAgente(Agente agenteAModificar)
+        {
+            return dao.Modificar(agenteAModificar);
+        }
+
+        public void EliminarAgente(string ruc)
+        {
+            dao.Eliminar(dao.Obtener(ruc));
+        }
+
         public List<Agente> ListarAgentes()
         {
             return dao.ListarTodos();
