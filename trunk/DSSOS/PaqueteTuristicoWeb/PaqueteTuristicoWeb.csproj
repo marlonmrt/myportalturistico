@@ -72,6 +72,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auth\Auth.aspx.cs">
+      <DependentUpon>Auth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth\Auth.aspx.designer.cs">
+      <DependentUpon>Auth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\AuthUtilities.cs" />
+    <Compile Include="Auth\Json.cs" />
+    <Compile Include="Auth\oAuth.cs" />
+    <Compile Include="Auth\oAuthTwitter.cs" />
+    <Compile Include="Auth\TwitterData.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgenteController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
@@ -97,6 +109,7 @@
     <Compile Include="Utiles\Funciones.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Auth\Auth.aspx" />
     <Content Include="Content\jQueryClima\estilosClima.css" />
     <Content Include="Content\estilos.css" />
     <Content Include="Content\images\body_bg.jpg" />
@@ -132,6 +145,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Images\icon_twitter.png" />
+    <Content Include="Images\twitter_signin.png" />
     <Content Include="Views\Agente\Index.aspx" />
     <Content Include="Views\Cliente\Create.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
