@@ -91,55 +91,46 @@ namespace RESTServices.persistencia
             return correoCreado;
         }
 
-        /*
-
-        public Cliente Modificar(Cliente ClienteAModificar)
+        public Agente Modificar(Agente agenteAModificar)
         {
-            Cliente clienteModif = null;
-            string sql = "update cliente set NombreCliente=@nom, ApellidoCliente=@ape, CorreoCliente=@correo  where DNI=@dni";
+            Agente agenteModificado = null;
+            string sql = "UPDATE Agente SET RazonSocial=@razonsocial, Direccion=@direccion, CorreoAgente=@correoagente, NroCuentaInterbancaria=@nrocta  WHERE ruc=@ruc";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@dni", ClienteAModificar.DNI));
-                    com.Parameters.Add(new SqlParameter("@nom", ClienteAModificar.NombreCliente));
-                    com.Parameters.Add(new SqlParameter("@ape", ClienteAModificar.ApellidoCliente));
-                    com.Parameters.Add(new SqlParameter("@correo", ClienteAModificar.CorreoCliente));
+                    com.Parameters.Add(new SqlParameter("@ruc", agenteAModificar.RUC));
+                    com.Parameters.Add(new SqlParameter("@razonsocial", agenteAModificar.RazonSocial));                    
+                    com.Parameters.Add(new SqlParameter("@correoagente", agenteAModificar.CorreoAgente));
+                    com.Parameters.Add(new SqlParameter("@direccion", agenteAModificar.Direccion));
+                    com.Parameters.Add(new SqlParameter("@nrocta", agenteAModificar.NroCuentaInterbancaria));
                     com.ExecuteNonQuery();
                 }
             }
-            clienteModif = Obtener(ClienteAModificar.DNI);
-            return clienteModif;
+            agenteModificado = Obtener(agenteAModificar.RUC);
+            return agenteModificado;
         }
 
-        */
-
-        /*
-        public void Eliminar(string dni)
+        public void Eliminar(Agente agenteAEliminar)
         {
-            //Alumno alumnoCreado = null;
-            string sql = "delete from cliente where DNI=@dni";
+            string sql = "DELETE FROM agente WHERE ruc=@ruc";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@dni", dni));
+                    com.Parameters.Add(new SqlParameter("@ruc", agenteAEliminar.RUC));
                     com.ExecuteNonQuery();
                 }
             }
-            //alumnoCreado = Obtener(AlumnoCrear.Codigo);
-            //return alumnoCreado;
         }
-
-        */
 
         public List<Agente> ListarTodos()
         {
             List<Agente> agentesEncontrado = null;
             agentesEncontrado = new List<Agente>();
-            string sql = "select RazonSocial, Ruc, Direccion, CorreoCliente, NroCuentaInterbancaria from agente";
+            string sql = "select RazonSocial, Ruc, Direccion, CorreoAgente, NroCuentaInterbancaria from agente";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -155,6 +146,7 @@ namespace RESTServices.persistencia
                                 RUC = (string)resultado["Ruc"],
                                 Direccion = (string)resultado["Direccion"],
                                 CorreoAgente = (string)resultado["CorreoAgente"],
+                                //CorreoAgente = (string)resultado["CorreoAgente"],
                             };
                             agentesEncontrado.Add(agenteEncontrado);
                         }
