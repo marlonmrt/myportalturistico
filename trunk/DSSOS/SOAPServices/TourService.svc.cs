@@ -140,45 +140,74 @@ namespace SOAPServices
         
         public Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente)
         {
-            /*
+            Paquete paqueteAux = null;
             try
             {
-                if(DateTime.Compare(fechaInicio,fechaFin) >0){
-                    throw new System.ArgumentException("la fecha de fin no puede ser menor que la del inicio", "original");
-                }
-
-            */
-                TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
-                Agente agenteExistente = AgenteDAO.Obtener(agente);
-
-                Paquete paqueteACrear = new Paquete()
+                //valida que la fecha de inicio sea menor que la fecha de fin
+                if (DateTime.Compare(fechaInicio, fechaFin) > 0)
                 {
-                    TipoPaquete = tipoPaqueteExistente,
-                    NombrePaquete = nombrePaquete,
-                    FechaInicio = fechaInicio,
-                    FechaFin = fechaFin,
-                    HoraInicio = horaInicio,
-                    HoraFin = horaFin,
-                    Descripcion = descripcion,
-                    Lugares = lugares,
-                    InformacionAdicional = informacionAdicional,
-                    Precio = precio,
-                    Cupos = cupos,
-                    Registrados = registrados,
-                    Agente = agenteExistente
+                    FaultReason code = new FaultReason("Operación inválida");
+                    throw new FaultException<Error>(
+                        new Error()
+                        {
+                            CodigoNegocio = "Error1",
+                            MensajeNegocio = "La fecha de fin no puede ser menor que la del inicio"
 
-                };
+                        }, code);
+                }
+                else
+                {
+                    //valida que la hora de inicio sea menor que la hora de fin
+                    if (horaInicio > horaFin)
+                    {
+                        FaultReason code = new FaultReason("Operación inválida");
+                        throw new FaultException<Error>(
+                            new Error()
+                            {
+                                CodigoNegocio = "Error1",
+                                MensajeNegocio = "La hora de fin no puede ser menor que la del inicio"
 
-                return PaqueteDAO.Crear(paqueteACrear);
-            /*
+                            }, code);
+                    }
+                    else
+                    {
+
+                        TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
+                        Agente agenteExistente = AgenteDAO.Obtener(agente);
+
+                        Paquete paqueteACrear = new Paquete()
+                        {
+                            TipoPaquete = tipoPaqueteExistente,
+                            NombrePaquete = nombrePaquete,
+                            FechaInicio = fechaInicio,
+                            FechaFin = fechaFin,
+                            HoraInicio = horaInicio,
+                            HoraFin = horaFin,
+                            Descripcion = descripcion,
+                            Lugares = lugares,
+                            InformacionAdicional = informacionAdicional,
+                            Precio = precio,
+                            Cupos = cupos,
+                            Registrados = registrados,
+                            Agente = agenteExistente
+
+                        };
+
+                        paqueteAux = PaqueteDAO.Crear(paqueteACrear);
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (FaultException<Error> faulte1)
             {
-                return null;
-                throw ex;
+                throw faulte1;
             }
-            */
-           
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return paqueteAux;
+          
         }
         //*****************************************************************
         public Paquete ObtenerPaquete(int codigo)
@@ -188,29 +217,76 @@ namespace SOAPServices
         //*****************************************************************
         public Paquete ModificarPaquete(int codigo, int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente)
         {
-            TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
-            Agente agenteExistente = AgenteDAO.Obtener(agente);
-
-            Paquete paqueteAModificar = new Paquete()
+            Paquete paqueteAux = null;
+            try
             {
-                CodPaquete = codigo,
-                TipoPaquete = tipoPaqueteExistente,
-                NombrePaquete = nombrePaquete,
-                FechaInicio = fechaInicio,
-                FechaFin = fechaFin,
-                HoraInicio = horaInicio,
-                HoraFin = horaFin,
-                Descripcion = descripcion,
-                Lugares = lugares,
-                InformacionAdicional = informacionAdicional,
-                Precio = precio,
-                Cupos = cupos,
-                Registrados = registrados,
-                Agente = agenteExistente
+                //valida que la fecha de inicio sea menor que la fecha de fin
+                if (DateTime.Compare(fechaInicio, fechaFin) > 0)
+                {
+                    FaultReason code = new FaultReason("Operacion invalida");
+                    throw new FaultException<Error>(
+                        new Error()
+                        {
+                            CodigoNegocio = "Error1",
+                            MensajeNegocio = "La fecha de fin no puede ser menor que la del inicio"
 
-            };
+                        }, code);
+                }
+                else
+                {
+                    //valida que la hora de inicio sea menor que la hora de fin
+                    if (horaInicio > horaFin)
+                    {
+                        FaultReason code = new FaultReason("Error general");
+                        throw new FaultException<Error>(
+                            new Error()
+                            {
+                                CodigoNegocio = "Error1",
+                                MensajeNegocio = "La hora de fin no puede ser menor que la del inicio"
 
-            return PaqueteDAO.Modificar(paqueteAModificar);
+                            }, code);
+                    }
+                    else
+                    {
+
+                        TipoPaquete tipoPaqueteExistente = TipoPaqueteDAO.Obtener(tipoPaquete);
+                        Agente agenteExistente = AgenteDAO.Obtener(agente);
+
+                        Paquete paqueteAModificar = new Paquete()
+                        {
+                            CodPaquete = codigo,
+                            TipoPaquete = tipoPaqueteExistente,
+                            NombrePaquete = nombrePaquete,
+                            FechaInicio = fechaInicio,
+                            FechaFin = fechaFin,
+                            HoraInicio = horaInicio,
+                            HoraFin = horaFin,
+                            Descripcion = descripcion,
+                            Lugares = lugares,
+                            InformacionAdicional = informacionAdicional,
+                            Precio = precio,
+                            Cupos = cupos,
+                            Registrados = registrados,
+                            Agente = agenteExistente
+
+                        };
+
+                        paqueteAux = PaqueteDAO.Modificar(paqueteAModificar);
+                    }
+                }
+            }
+            catch (FaultException<Error> faultEx)
+            {
+                throw faultEx;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return paqueteAux;
+            
+            
         }
         //*****************************************************************
         public void EliminarPaquete(int codigo)

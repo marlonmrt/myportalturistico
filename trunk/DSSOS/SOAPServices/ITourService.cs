@@ -35,11 +35,16 @@ namespace SOAPServices
 
         
         //*********** para Paquete  ****************************
+        //JV 08/12/2012
         [OperationContract]
+        [FaultContract(typeof(Error))]
         Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente);
+        
         [OperationContract]
         Paquete ObtenerPaquete(int codigo);
+        //JV 08/12/2012
         [OperationContract]
+        [FaultContract(typeof(Error))]
         Paquete ModificarPaquete(int codigo, int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente);
         
         [OperationContract]

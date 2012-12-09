@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Agente.cs" />
     <Compile Include="Dominio\Cliente.cs" />
+    <Compile Include="Dominio\Error.cs" />
     <Compile Include="Dominio\Paquete.cs" />
     <Compile Include="Dominio\Reserva.cs" />
     <Compile Include="Dominio\TipoPaquete.cs" />
