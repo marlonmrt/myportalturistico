@@ -12,7 +12,8 @@ namespace RESTServices.persistencia
             get
             {
                 //return "Data Source=(local); Initial Catalog=bdPaquetesTuristicos; Integrated Security=SSPI;";
-                return "Data Source=ERICK-PC\\SQLEXPRESS; Initial Catalog=bdPaquetesTuristicos; Integrated Security=SSPI;";
+                return "Data Source=GVILLAYZAN\\SQLEXPRESS; Initial Catalog=bdPaquetesTuristicos; Integrated Security=SSPI;";
+                //return "Data Source=ERICK-PC\\SQLEXPRESS; Initial Catalog=bdPaquetesTuristicos; Integrated Security=SSPI;";
                 
             }
         }
