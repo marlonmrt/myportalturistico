@@ -52,6 +52,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Error.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\TourWS\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -69,6 +70,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TourWS\SOAPServicesTest.TourWS.Paquete.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TourWS\SOAPServicesTest.TourWS.Reserva.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TourWS\SOAPServicesTest.TourWS.TipoPaquete.datasource">

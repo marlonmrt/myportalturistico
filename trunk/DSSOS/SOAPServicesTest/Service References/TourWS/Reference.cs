@@ -452,6 +452,285 @@ namespace SOAPServicesTest.TourWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Error", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Error : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoNegocioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeNegocioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoNegocio {
+            get {
+                return this.CodigoNegocioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoNegocioField, value) != true)) {
+                    this.CodigoNegocioField = value;
+                    this.RaisePropertyChanged("CodigoNegocio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MensajeNegocio {
+            get {
+                return this.MensajeNegocioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeNegocioField, value) != true)) {
+                    this.MensajeNegocioField = value;
+                    this.RaisePropertyChanged("MensajeNegocio");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Reserva", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Reserva : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SOAPServicesTest.TourWS.Cliente ClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodReservaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaReservaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SOAPServicesTest.TourWS.Paquete PaqueteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SOAPServicesTest.TourWS.Cliente Cliente {
+            get {
+                return this.ClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClienteField, value) != true)) {
+                    this.ClienteField = value;
+                    this.RaisePropertyChanged("Cliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodReserva {
+            get {
+                return this.CodReservaField;
+            }
+            set {
+                if ((this.CodReservaField.Equals(value) != true)) {
+                    this.CodReservaField = value;
+                    this.RaisePropertyChanged("CodReserva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaReserva {
+            get {
+                return this.FechaReservaField;
+            }
+            set {
+                if ((this.FechaReservaField.Equals(value) != true)) {
+                    this.FechaReservaField = value;
+                    this.RaisePropertyChanged("FechaReserva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SOAPServicesTest.TourWS.Paquete Paquete {
+            get {
+                return this.PaqueteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaqueteField, value) != true)) {
+                    this.PaqueteField = value;
+                    this.RaisePropertyChanged("Paquete");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DNIField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreClienteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApellidoCliente {
+            get {
+                return this.ApellidoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoClienteField, value) != true)) {
+                    this.ApellidoClienteField = value;
+                    this.RaisePropertyChanged("ApellidoCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodCliente {
+            get {
+                return this.CodClienteField;
+            }
+            set {
+                if ((this.CodClienteField.Equals(value) != true)) {
+                    this.CodClienteField = value;
+                    this.RaisePropertyChanged("CodCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoCliente {
+            get {
+                return this.CorreoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoClienteField, value) != true)) {
+                    this.CorreoClienteField = value;
+                    this.RaisePropertyChanged("CorreoCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DNI {
+            get {
+                return this.DNIField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DNIField, value) != true)) {
+                    this.DNIField = value;
+                    this.RaisePropertyChanged("DNI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCliente {
+            get {
+                return this.NombreClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreClienteField, value) != true)) {
+                    this.NombreClienteField = value;
+                    this.RaisePropertyChanged("NombreCliente");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TourWS.ITourService")]
     public interface ITourService {
@@ -469,12 +748,14 @@ namespace SOAPServicesTest.TourWS {
         System.Collections.Generic.List<SOAPServicesTest.TourWS.Agente> ListarAgentes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/CrearPaquete", ReplyAction="http://tempuri.org/ITourService/CrearPaqueteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SOAPServicesTest.TourWS.Error), Action="http://tempuri.org/ITourService/CrearPaqueteErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
         SOAPServicesTest.TourWS.Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, System.DateTime fechaInicio, System.DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, decimal precio, int cupos, int registrados, int agente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ObtenerPaquete", ReplyAction="http://tempuri.org/ITourService/ObtenerPaqueteResponse")]
         SOAPServicesTest.TourWS.Paquete ObtenerPaquete(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ModificarPaquete", ReplyAction="http://tempuri.org/ITourService/ModificarPaqueteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SOAPServicesTest.TourWS.Error), Action="http://tempuri.org/ITourService/ModificarPaqueteErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
         SOAPServicesTest.TourWS.Paquete ModificarPaquete(int codigo, int tipoPaquete, string nombrePaquete, System.DateTime fechaInicio, System.DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, decimal precio, int cupos, int registrados, int agente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ListarPaquetes", ReplyAction="http://tempuri.org/ITourService/ListarPaquetesResponse")]
@@ -482,6 +763,21 @@ namespace SOAPServicesTest.TourWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/EliminarPaquete", ReplyAction="http://tempuri.org/ITourService/EliminarPaqueteResponse")]
         void EliminarPaquete(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/CrearReserva", ReplyAction="http://tempuri.org/ITourService/CrearReservaResponse")]
+        SOAPServicesTest.TourWS.Reserva CrearReserva(int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ObtenerReserva", ReplyAction="http://tempuri.org/ITourService/ObtenerReservaResponse")]
+        SOAPServicesTest.TourWS.Reserva ObtenerReserva(int CodReserva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ModificarReserva", ReplyAction="http://tempuri.org/ITourService/ModificarReservaResponse")]
+        SOAPServicesTest.TourWS.Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/EliminarReserva", ReplyAction="http://tempuri.org/ITourService/EliminarReservaResponse")]
+        void EliminarReserva(int CodReserva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ListarReservas", ReplyAction="http://tempuri.org/ITourService/ListarReservasResponse")]
+        System.Collections.Generic.List<SOAPServicesTest.TourWS.Reserva> ListarReservas();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -545,6 +841,26 @@ namespace SOAPServicesTest.TourWS {
         
         public void EliminarPaquete(int codigo) {
             base.Channel.EliminarPaquete(codigo);
+        }
+        
+        public SOAPServicesTest.TourWS.Reserva CrearReserva(int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva) {
+            return base.Channel.CrearReserva(codPaquete, codCliente, Estado, FechaReserva);
+        }
+        
+        public SOAPServicesTest.TourWS.Reserva ObtenerReserva(int CodReserva) {
+            return base.Channel.ObtenerReserva(CodReserva);
+        }
+        
+        public SOAPServicesTest.TourWS.Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva) {
+            return base.Channel.ModificarReserva(CodReserva, codPaquete, codCliente, Estado, FechaReserva);
+        }
+        
+        public void EliminarReserva(int CodReserva) {
+            base.Channel.EliminarReserva(CodReserva);
+        }
+        
+        public System.Collections.Generic.List<SOAPServicesTest.TourWS.Reserva> ListarReservas() {
+            return base.Channel.ListarReservas();
         }
     }
 }

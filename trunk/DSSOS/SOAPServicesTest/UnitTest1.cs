@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SOAPServicesTest.TourWS;
+using System.ServiceModel;
 
 namespace SOAPServicesTest
 {
@@ -14,10 +15,10 @@ namespace SOAPServicesTest
     public class UnitTest1
     {
         
-        [TestMethod]
+        //[TestMethod]
         public void TestCrearPaquete1()
         {
-            /* try {*/
+            try {
             
             //1. Instancia el objeto a probar
             TourWS.TourServiceClient proxy = new TourWS.TourServiceClient();
@@ -38,7 +39,7 @@ namespace SOAPServicesTest
             DateTime FechaFin = new DateTime(2012, 12, 25);
 
             //2. Invoca el método a probar del objeto instanciado
-            Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Paquete de fiestas navideñas", FechaIni, FechaFin,8,20,"Un lugar de ensueño a 5 horas de Lima","Cañete","al correo informes@gmail.com",60, 20,0,ag1.CodAgente);
+            Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Paquete de año nuevo IIII", FechaIni, FechaFin,8,20,"Un lugar de ensueño a 5 horas de Lima","Cañete","al correo informes@gmail.com",60, 20,0,ag1.CodAgente);
 
             //busco nuevamente el total de paquetesantes de la inserción
             int total2 = 0;
@@ -49,21 +50,24 @@ namespace SOAPServicesTest
 
             //3. Realizar las validaciones de prueba (sobre el resultado)
             Assert.AreEqual(total1 + 1, total2);
-/*
-             }
-             catch (Exception e)
-             {
-                 Assert.Fail("la fecha de inicio debe ser menor que la fecha de fin");
 
-             }
-        */    
+            }
+            catch (FaultException<TourWS.Error> faultEx)
+            {
+                Assert.AreEqual("La hora de fin no puede ser menor que la del inicio", faultEx.Detail.MensajeNegocio);
+
+            }
+            catch (Exception e)
+            {
+
+                Assert.AreEqual("Error general", e.Message);
+            }
             
         }
 
-
-        /*
-       // [TestMethod]
-        public void TestCrearPaquete2()
+               
+        [TestMethod]
+        public void TestProbarHorasCrearPaquete()
         {
 
             try {
@@ -82,13 +86,10 @@ namespace SOAPServicesTest
                     total1 += 1;
                 }
                 //creo paquete
-                DateTime FechaIni = new DateTime(2012, 11, 25);
+                DateTime FechaIni = new DateTime(2012, 11, 10);
                 DateTime FechaFin = new DateTime(2012, 11, 20);
 
-                //2. Invoca el método a probar del objeto instanciado
-               // Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Paquete de Fin de Semana", FechaIni, FechaFin, 8, 20, "Un lugar de ensueño a 5 horas de Lima", "Cañete", "al correo informes@gmail.com", 60, 20, 0, ag1.CodAgente);
-
-                Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Semana de Cajamarca", FechaIni, FechaFin, 8, 20, "Un lugar de ensueño a 5 horas de Lima", "Cañete", "al correo informes@gmail.com", 60, 20, 0, ag1.CodAgente);
+                Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Semana de Cajamarca", FechaIni, FechaFin, 14, 8, "Un lugar de ensueño a 5 horas de Lima", "Cañete", "al correo informes@gmail.com", 60, 20, 0, ag1.CodAgente);
 
 
                 //busco nuevamente el total de paquetesantes de la inserción
@@ -100,15 +101,17 @@ namespace SOAPServicesTest
 
                 //3. Realizar las validaciones de prueba (sobre el resultado)
                 Assert.AreEqual(total1 + 1, total2);
-
-            }catch(Exception e){
-                Assert.Fail("la fecha de inicio debe ser menor que la fecha de fin");
- 
             }
-            
-            
+            catch (FaultException<TourWS.Error> faultEx)
+            {
+                Assert.AreEqual("La hora de fin no puede ser menor que la del inicio", faultEx.Detail.MensajeNegocio);
+             
+            }catch(Exception e){
+
+                Assert.AreEqual("Operación inválida", e.Message);
+            }
 
         }
-         */
+         
     }
 }
