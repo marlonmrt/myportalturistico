@@ -37,6 +37,9 @@
   <wsdl:message name="ITourService_CrearPaquete_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearPaqueteResponse" />
   </wsdl:message>
+  <wsdl:message name="ITourService_CrearPaquete_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" name="detail" element="q1:Error" />
+  </wsdl:message>
   <wsdl:message name="ITourService_ObtenerPaquete_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerPaquete" />
   </wsdl:message>
@@ -48,6 +51,9 @@
   </wsdl:message>
   <wsdl:message name="ITourService_ModificarPaquete_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarPaquete_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" name="detail" element="q2:Error" />
   </wsdl:message>
   <wsdl:message name="ITourService_ListarPaquetes_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPaquetes" />
@@ -111,6 +117,7 @@
     <wsdl:operation name="CrearPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearPaquete" message="tns:ITourService_CrearPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteResponse" message="tns:ITourService_CrearPaquete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteErrorFault" name="ErrorFault" message="tns:ITourService_CrearPaquete_ErrorFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerPaquete" message="tns:ITourService_ObtenerPaquete_InputMessage" />
@@ -119,6 +126,7 @@
     <wsdl:operation name="ModificarPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ModificarPaquete" message="tns:ITourService_ModificarPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ModificarPaqueteResponse" message="tns:ITourService_ModificarPaquete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ITourService/ModificarPaqueteErrorFault" name="ErrorFault" message="tns:ITourService_ModificarPaquete_ErrorFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarPaquetes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarPaquetes" message="tns:ITourService_ListarPaquetes_InputMessage" />
@@ -195,6 +203,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ObtenerPaquete">
       <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerPaquete" style="document" />
@@ -213,6 +224,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ListarPaquetes">
       <soap:operation soapAction="http://tempuri.org/ITourService/ListarPaquetes" style="document" />
