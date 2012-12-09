@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PaqueteTuristicoWeb.Models;
 using PaqueteTuristicoWeb.Utiles;
+using System.ServiceModel;
 
 namespace PaqueteTuristicoWeb.Controllers
 {
@@ -73,14 +74,27 @@ namespace PaqueteTuristicoWeb.Controllers
 
                 //se inserta
                 proxy.CrearPaquete(codTipoPaquete, NombrePaquete, FechaInicio, FechaFin, HoraInicio, HoraFin, Descripcion, Lugares, InformacionAdicional, Precio, Cupos, Registrados, codAgente);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Paquete creado";
 
-
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
-            catch
+            catch (FaultException<TourWS.Error> faultEx)
             {
-                return View();
+                ModelState.AddModelError("Error", faultEx.Detail.MensajeNegocio);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + faultEx.Detail.MensajeNegocio;
+
             }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError("Error", e.Message);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
+            }
+           
+            return View();
         }
 
         //
@@ -126,13 +140,27 @@ namespace PaqueteTuristicoWeb.Controllers
 
                 //se inserta
                 proxy.ModificarPaquete(codPaquete, codTipoPaquete, NombrePaquete, FechaInicio, FechaFin, HoraInicio, HoraFin, Descripcion, Lugares, InformacionAdicional, Precio, Cupos, Registrados, codAgente);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Paquete creado";
 
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
-            catch
+            catch (FaultException<TourWS.Error> faultEx)
             {
-                return View();
+                ModelState.AddModelError("Error", faultEx.Detail.MensajeNegocio);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + faultEx.Detail.MensajeNegocio;
+
             }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError("Error", e.Message);
+                //se manda el mensaje para que se vea en pantalla
+                ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
+            }
+
+            return View();
         }
 
         //
