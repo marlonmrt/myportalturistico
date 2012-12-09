@@ -60,7 +60,6 @@ namespace PaqueteTuristicoWeb.Controllers
 
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Cliente creado";
-                return View();
                 //return RedirectToAction("Index");
             }
             catch (WebException e) //caso negativo
@@ -74,7 +73,7 @@ namespace PaqueteTuristicoWeb.Controllers
                 ModelState.AddModelError("Error", objetoError.MensajeNegocio);
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Error en el ingreso: " + objetoError.MensajeNegocio;
-                return View();
+               
 
             }
             catch (Exception e)
@@ -82,8 +81,10 @@ namespace PaqueteTuristicoWeb.Controllers
                 ModelState.AddModelError("Error", e.Message);
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
-                return View();
+               
             }
+
+            return View();
         }
         
         //
