@@ -28,7 +28,7 @@ namespace RESTServicesTest
             JavaScriptSerializer js3 = new JavaScriptSerializer();
             List<Cliente> clientesObtenidos = js3.Deserialize<List<Cliente>>(clienteJson3);
 
-            Assert.AreEqual(6, clientesObtenidos.Count);
+            Assert.AreEqual(7, clientesObtenidos.Count);
         }
 
 
