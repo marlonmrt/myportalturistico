@@ -9,15 +9,15 @@ namespace PaqueteTuristicoWeb.Models
     {
         public int CodPaquete { get; set; }
         public TipoPaquete TipoPaquete { get; set; }
-        public String NombrePaquete { get; set; }
-        public String FechaInicio { get; set; }
-        public String FechaFin { get; set; }
-        public String HoraInicio { get; set; }
-        public String HoraFin { get; set; }
-        public String Descripcion { get; set; }
-        public String Lugares { get; set; }
-        public String InformacionAdicional { get; set; }
-        public Decimal Precio { get; set; }
+        public string NombrePaquete { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public int HoraInicio { get; set; }
+        public int HoraFin { get; set; }
+        public string Descripcion { get; set; }
+        public string Lugares { get; set; }
+        public string InformacionAdicional { get; set; }
+        public decimal Precio { get; set; }
         public int Cupos { get; set; }
         public int Registrados { get; set; }
         public Agente Agente { get; set; }  //se lleva el objeto Agente , pues está relacionado con él
