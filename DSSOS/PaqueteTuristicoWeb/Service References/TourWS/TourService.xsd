@@ -49,6 +49,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Paquete" nillable="true" type="tns:Paquete" />
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoNegocio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MensajeNegocio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
   <xs:complexType name="ArrayOfPaquete">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Paquete" nillable="true" type="tns:Paquete" />
