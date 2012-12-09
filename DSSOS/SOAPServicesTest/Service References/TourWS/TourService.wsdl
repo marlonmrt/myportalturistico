@@ -37,6 +37,9 @@
   <wsdl:message name="ITourService_CrearPaquete_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearPaqueteResponse" />
   </wsdl:message>
+  <wsdl:message name="ITourService_CrearPaquete_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" name="detail" element="q1:Error" />
+  </wsdl:message>
   <wsdl:message name="ITourService_ObtenerPaquete_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerPaquete" />
   </wsdl:message>
@@ -49,6 +52,9 @@
   <wsdl:message name="ITourService_ModificarPaquete_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarPaqueteResponse" />
   </wsdl:message>
+  <wsdl:message name="ITourService_ModificarPaquete_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" name="detail" element="q2:Error" />
+  </wsdl:message>
   <wsdl:message name="ITourService_ListarPaquetes_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPaquetes" />
   </wsdl:message>
@@ -60,6 +66,36 @@
   </wsdl:message>
   <wsdl:message name="ITourService_EliminarPaquete_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearReserva" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_CrearReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReserva" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarReserva" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ModificarReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarReserva" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_EliminarReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarReservas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReservas" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarReservas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReservasResponse" />
   </wsdl:message>
   <wsdl:portType name="ITourService">
     <wsdl:operation name="ObtenerTipoPaquete">
@@ -81,6 +117,7 @@
     <wsdl:operation name="CrearPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearPaquete" message="tns:ITourService_CrearPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteResponse" message="tns:ITourService_CrearPaquete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteErrorFault" name="ErrorFault" message="tns:ITourService_CrearPaquete_ErrorFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerPaquete" message="tns:ITourService_ObtenerPaquete_InputMessage" />
@@ -89,6 +126,7 @@
     <wsdl:operation name="ModificarPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ModificarPaquete" message="tns:ITourService_ModificarPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ModificarPaqueteResponse" message="tns:ITourService_ModificarPaquete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ITourService/ModificarPaqueteErrorFault" name="ErrorFault" message="tns:ITourService_ModificarPaquete_ErrorFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarPaquetes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarPaquetes" message="tns:ITourService_ListarPaquetes_InputMessage" />
@@ -97,6 +135,26 @@
     <wsdl:operation name="EliminarPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/EliminarPaquete" message="tns:ITourService_EliminarPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/EliminarPaqueteResponse" message="tns:ITourService_EliminarPaquete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearReserva" message="tns:ITourService_CrearReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearReservaResponse" message="tns:ITourService_CrearReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerReserva" message="tns:ITourService_ObtenerReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ObtenerReservaResponse" message="tns:ITourService_ObtenerReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ModificarReserva" message="tns:ITourService_ModificarReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ModificarReservaResponse" message="tns:ITourService_ModificarReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/EliminarReserva" message="tns:ITourService_EliminarReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/EliminarReservaResponse" message="tns:ITourService_EliminarReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarReservas">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarReservas" message="tns:ITourService_ListarReservas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ListarReservasResponse" message="tns:ITourService_ListarReservas_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITourService" type="tns:ITourService">
@@ -145,6 +203,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ObtenerPaquete">
       <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerPaquete" style="document" />
@@ -163,6 +224,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ListarPaquetes">
       <soap:operation soapAction="http://tempuri.org/ITourService/ListarPaquetes" style="document" />
@@ -175,6 +239,51 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarPaquete">
       <soap:operation soapAction="http://tempuri.org/ITourService/EliminarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearReserva">
+      <soap:operation soapAction="http://tempuri.org/ITourService/CrearReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReserva">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarReserva">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ModificarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarReserva">
+      <soap:operation soapAction="http://tempuri.org/ITourService/EliminarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReservas">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ListarReservas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
