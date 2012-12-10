@@ -30,6 +30,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAgente" nillable="true" type="tns:ArrayOfAgente" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidoCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="CorreoCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DNI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCliente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="ArrayOfCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
   <xs:complexType name="Paquete">
     <xs:sequence>
       <xs:element minOccurs="0" name="Agente" nillable="true" type="tns:Agente" />
@@ -72,16 +88,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Reserva" nillable="true" type="tns:Reserva" />
-  <xs:complexType name="Cliente">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ApellidoCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CodCliente" type="xs:int" />
-      <xs:element minOccurs="0" name="CorreoCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DNI" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreCliente" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
   <xs:complexType name="ArrayOfReserva">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Reserva" nillable="true" type="tns:Reserva" />

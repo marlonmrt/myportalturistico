@@ -201,6 +201,115 @@ namespace PaqueteTuristicoWeb.TourWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DNIField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreClienteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApellidoCliente {
+            get {
+                return this.ApellidoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoClienteField, value) != true)) {
+                    this.ApellidoClienteField = value;
+                    this.RaisePropertyChanged("ApellidoCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodCliente {
+            get {
+                return this.CodClienteField;
+            }
+            set {
+                if ((this.CodClienteField.Equals(value) != true)) {
+                    this.CodClienteField = value;
+                    this.RaisePropertyChanged("CodCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoCliente {
+            get {
+                return this.CorreoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoClienteField, value) != true)) {
+                    this.CorreoClienteField = value;
+                    this.RaisePropertyChanged("CorreoCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DNI {
+            get {
+                return this.DNIField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DNIField, value) != true)) {
+                    this.DNIField = value;
+                    this.RaisePropertyChanged("DNI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCliente {
+            get {
+                return this.NombreClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreClienteField, value) != true)) {
+                    this.NombreClienteField = value;
+                    this.RaisePropertyChanged("NombreCliente");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Paquete", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
     [System.SerializableAttribute()]
     public partial class Paquete : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -622,115 +731,6 @@ namespace PaqueteTuristicoWeb.TourWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
-    [System.SerializableAttribute()]
-    public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoClienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodClienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CorreoClienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DNIField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreClienteField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApellidoCliente {
-            get {
-                return this.ApellidoClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoClienteField, value) != true)) {
-                    this.ApellidoClienteField = value;
-                    this.RaisePropertyChanged("ApellidoCliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CodCliente {
-            get {
-                return this.CodClienteField;
-            }
-            set {
-                if ((this.CodClienteField.Equals(value) != true)) {
-                    this.CodClienteField = value;
-                    this.RaisePropertyChanged("CodCliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CorreoCliente {
-            get {
-                return this.CorreoClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CorreoClienteField, value) != true)) {
-                    this.CorreoClienteField = value;
-                    this.RaisePropertyChanged("CorreoCliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DNI {
-            get {
-                return this.DNIField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DNIField, value) != true)) {
-                    this.DNIField = value;
-                    this.RaisePropertyChanged("DNI");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreCliente {
-            get {
-                return this.NombreClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreClienteField, value) != true)) {
-                    this.NombreClienteField = value;
-                    this.RaisePropertyChanged("NombreCliente");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TourWS.ITourService")]
     public interface ITourService {
@@ -746,6 +746,12 @@ namespace PaqueteTuristicoWeb.TourWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ListarAgentes", ReplyAction="http://tempuri.org/ITourService/ListarAgentesResponse")]
         System.Collections.Generic.List<PaqueteTuristicoWeb.TourWS.Agente> ListarAgentes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ObtenerCliente", ReplyAction="http://tempuri.org/ITourService/ObtenerClienteResponse")]
+        PaqueteTuristicoWeb.TourWS.Cliente ObtenerCliente(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ListarClientes", ReplyAction="http://tempuri.org/ITourService/ListarClientesResponse")]
+        System.Collections.Generic.List<PaqueteTuristicoWeb.TourWS.Cliente> ListarClientes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/CrearPaquete", ReplyAction="http://tempuri.org/ITourService/CrearPaqueteResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(PaqueteTuristicoWeb.TourWS.Error), Action="http://tempuri.org/ITourService/CrearPaqueteErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
@@ -768,13 +774,13 @@ namespace PaqueteTuristicoWeb.TourWS {
         PaqueteTuristicoWeb.TourWS.Reserva CrearReserva(int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ObtenerReserva", ReplyAction="http://tempuri.org/ITourService/ObtenerReservaResponse")]
-        PaqueteTuristicoWeb.TourWS.Reserva ObtenerReserva(int CodReserva);
+        PaqueteTuristicoWeb.TourWS.Reserva ObtenerReserva(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ModificarReserva", ReplyAction="http://tempuri.org/ITourService/ModificarReservaResponse")]
-        PaqueteTuristicoWeb.TourWS.Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva);
+        PaqueteTuristicoWeb.TourWS.Reserva ModificarReserva(int codigo, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/EliminarReserva", ReplyAction="http://tempuri.org/ITourService/EliminarReservaResponse")]
-        void EliminarReserva(int CodReserva);
+        void EliminarReserva(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITourService/ListarReservas", ReplyAction="http://tempuri.org/ITourService/ListarReservasResponse")]
         System.Collections.Generic.List<PaqueteTuristicoWeb.TourWS.Reserva> ListarReservas();
@@ -823,6 +829,14 @@ namespace PaqueteTuristicoWeb.TourWS {
             return base.Channel.ListarAgentes();
         }
         
+        public PaqueteTuristicoWeb.TourWS.Cliente ObtenerCliente(int codigo) {
+            return base.Channel.ObtenerCliente(codigo);
+        }
+        
+        public System.Collections.Generic.List<PaqueteTuristicoWeb.TourWS.Cliente> ListarClientes() {
+            return base.Channel.ListarClientes();
+        }
+        
         public PaqueteTuristicoWeb.TourWS.Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, System.DateTime fechaInicio, System.DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, decimal precio, int cupos, int registrados, int agente) {
             return base.Channel.CrearPaquete(tipoPaquete, nombrePaquete, fechaInicio, fechaFin, horaInicio, horaFin, descripcion, lugares, informacionAdicional, precio, cupos, registrados, agente);
         }
@@ -847,16 +861,16 @@ namespace PaqueteTuristicoWeb.TourWS {
             return base.Channel.CrearReserva(codPaquete, codCliente, Estado, FechaReserva);
         }
         
-        public PaqueteTuristicoWeb.TourWS.Reserva ObtenerReserva(int CodReserva) {
-            return base.Channel.ObtenerReserva(CodReserva);
+        public PaqueteTuristicoWeb.TourWS.Reserva ObtenerReserva(int codigo) {
+            return base.Channel.ObtenerReserva(codigo);
         }
         
-        public PaqueteTuristicoWeb.TourWS.Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva) {
-            return base.Channel.ModificarReserva(CodReserva, codPaquete, codCliente, Estado, FechaReserva);
+        public PaqueteTuristicoWeb.TourWS.Reserva ModificarReserva(int codigo, int codPaquete, int codCliente, string Estado, System.DateTime FechaReserva) {
+            return base.Channel.ModificarReserva(codigo, codPaquete, codCliente, Estado, FechaReserva);
         }
         
-        public void EliminarReserva(int CodReserva) {
-            base.Channel.EliminarReserva(CodReserva);
+        public void EliminarReserva(int codigo) {
+            base.Channel.EliminarReserva(codigo);
         }
         
         public System.Collections.Generic.List<PaqueteTuristicoWeb.TourWS.Reserva> ListarReservas() {
