@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Reservas</h2>
+    <h2><strong>Reservas</strong></h2>
 
     <table>
         <tr>
