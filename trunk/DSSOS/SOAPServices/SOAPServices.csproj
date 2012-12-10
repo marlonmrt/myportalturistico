@@ -70,10 +70,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Dominio\TipoPaquete.hbm.xml" />
-    <Content Include="Dominio\Cliente.hbm.xml" />
-    <Content Include="Dominio\Reserva.hbm.xml">
+    <EmbeddedResource Include="Dominio\Cliente.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Reserva.hbm.xml">
       <SubType>Designer</SubType>
-    </Content>
+    </EmbeddedResource>
     <Content Include="TourService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
