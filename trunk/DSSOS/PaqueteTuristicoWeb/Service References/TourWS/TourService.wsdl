@@ -31,6 +31,18 @@
   <wsdl:message name="ITourService_ListarAgentes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarAgentesResponse" />
   </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCliente" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ObtenerCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ITourService_ListarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarClientesResponse" />
+  </wsdl:message>
   <wsdl:message name="ITourService_CrearPaquete_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearPaquete" />
   </wsdl:message>
@@ -114,6 +126,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarAgentes" message="tns:ITourService_ListarAgentes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ListarAgentesResponse" message="tns:ITourService_ListarAgentes_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ObtenerCliente" message="tns:ITourService_ObtenerCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ObtenerClienteResponse" message="tns:ITourService_ObtenerCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITourService/ListarClientes" message="tns:ITourService_ListarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITourService/ListarClientesResponse" message="tns:ITourService_ListarClientes_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CrearPaquete">
       <wsdl:input wsaw:Action="http://tempuri.org/ITourService/CrearPaquete" message="tns:ITourService_CrearPaquete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITourService/CrearPaqueteResponse" message="tns:ITourService_CrearPaquete_OutputMessage" />
@@ -188,6 +208,24 @@
     </wsdl:operation>
     <wsdl:operation name="ListarAgentes">
       <soap:operation soapAction="http://tempuri.org/ITourService/ListarAgentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCliente">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ObtenerCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarClientes">
+      <soap:operation soapAction="http://tempuri.org/ITourService/ListarClientes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
