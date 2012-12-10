@@ -32,6 +32,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaqueteTuristicoWeb.Tests", "PaqueteTuristicoWeb.Tests\PaqueteTuristicoWeb.Tests.csproj", "{DD4090DD-57B1-47F7-9E6E-63D770132553}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{5B9BFEA9-87D5-48A5-B77E-0CC6DEE32EBD}"
+	ProjectSection(SolutionItems) = preProject
+		Script\script_insert_paquetesturisticos.sql = Script\script_insert_paquetesturisticos.sql
+		Script\script_tablas_paquetesturisticos.sql = Script\script_tablas_paquetesturisticos.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
