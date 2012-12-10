@@ -20,20 +20,13 @@ namespace SOAPServices
        
         [OperationContract]
         Agente ObtenerAgente(int codigo);
-       
         [OperationContract]
         List<Agente> ListarAgentes();
-
-        /*
+        //*********** para Cliente  ****************************
         [OperationContract]
-        Agente CrearAgente(string razonSocial, string ruc, string correoAgente, string direccion, string nroCuentaBancaria);
-         [OperationContract]
-         Agente ModificarAgente(int codigo, string razonSocial, string ruc, string correoAgente, string direccion, string nroCuentaInterBancaria);
-         [OperationContract]
-         void EliminarAgente(int codigo);
-       */
-
-        
+        Cliente ObtenerCliente(int codigo);
+        [OperationContract]
+        List<Cliente> ListarClientes();
         //*********** para Paquete  ****************************
         //JV 08/12/2012
         [OperationContract]
@@ -52,15 +45,16 @@ namespace SOAPServices
         [OperationContract]
         void EliminarPaquete(int codigo);
         
+
         //*********Reserva**********
         [OperationContract]
         Reserva CrearReserva(int codPaquete, int codCliente, string Estado, DateTime FechaReserva);
         [OperationContract]
-        Reserva ObtenerReserva(int CodReserva);
+        Reserva ObtenerReserva(int codigo);
         [OperationContract]
-        Reserva ModificarReserva(int CodReserva, int codPaquete, int codCliente, string Estado, DateTime FechaReserva);
+        Reserva ModificarReserva(int codigo, int codPaquete, int codCliente, string Estado, DateTime FechaReserva);
         [OperationContract]
-        void EliminarReserva(int CodReserva);
+        void EliminarReserva(int codigo);
         [OperationContract]
         List<Reserva> ListarReservas();
 
