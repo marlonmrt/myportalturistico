@@ -36,6 +36,17 @@ namespace SOAPServices
                 return agenteDAO;
             }
         }
+        private ClienteDAO clienteDAO = null;
+        private ClienteDAO ClienteDAO
+        {
+            get
+            {
+                if (clienteDAO == null)
+                    clienteDAO = new ClienteDAO();
+                return clienteDAO;
+            }
+        }
+
 
         private PaqueteDAO paqueteDAO = null;
         private PaqueteDAO PaqueteDAO
@@ -59,83 +70,38 @@ namespace SOAPServices
             }
         }
 
-        private ClienteDAO clienteDAO = null;
-        private ClienteDAO ClienteDAO
-        {
-            get
-            {
-                if (clienteDAO == null)
-                    clienteDAO = new ClienteDAO();
-                return clienteDAO;
-            }
-        }
-
+       
         //*****************************************************************
         
         public TipoPaquete ObtenerTipoPaquete(int codigo)
         {
             return TipoPaqueteDAO.Obtener(codigo);
         }
-        //*****************************************************************
-       /*
-        public Agente CrearAgente(String razonSocial, String ruc, String correoAgente, String direccion, String nroCuentaInterBancaria)
+        public List<TipoPaquete> ListarTiposPaquete()
         {
-            Agente agenteACrear = new Agente()
-            {
-                RazonSocial = razonSocial,
-                RUC = ruc,
-                CorreoAgente = correoAgente,
-                Direccion = direccion,
-                NroCuentaInterbancaria = nroCuentaInterBancaria
-
-            };
-            //return AgenteDAO.Crear(agenteACrear); // falta terminar el codigo para ingreso a DB
-            return agenteACrear;
-
+            return TipoPaqueteDAO.ListarTodos().ToList();
         }
-        * */
-
+        //*****************************************************************
         public Agente ObtenerAgente(int codigo)
         {
             return AgenteDAO.Obtener(codigo);
         }
-
-        /*
-        public Agente ModificarAgente(int codigo, string razonSocial, string ruc, string correoAgente, string direccion, string nroCuentaInterBancaria)
-        {
-
-            Agente agenteAModificar = new Agente()
-            {
-                CodAgente = codigo,
-                RUC = ruc,
-                CorreoAgente = correoAgente,
-                Direccion = direccion,
-                NroCuentaInterbancaria = nroCuentaInterBancaria
-
-            };
-
-            return AgenteDAO.Modificar(agenteAModificar);
-
-        }
-         * */
-        /*
-        public void EliminarAgente(int codigo)
-        {
-            Agente agenteExistente = AgenteDAO.Obtener(codigo);
-            AgenteDAO.Eliminar(agenteExistente);
-        }
-         * */
 
         public List<Agente> ListarAgentes()
         {
             return AgenteDAO.ListarTodos().ToList();
         }
         //*****************************************************************
-
-        public List<TipoPaquete> ListarTiposPaquete()
+        public Cliente ObtenerCliente(int codigo)
         {
-            return TipoPaqueteDAO.ListarTodos().ToList();
+            return ClienteDAO.Obtener(codigo);
         }
+
+        public List<Cliente> ListarClientes()
+        {
+            return ClienteDAO.ListarTodos().ToList();
+        }
+       
         //*****************************************************************
         
         public Paquete CrearPaquete(int tipoPaquete, string nombrePaquete, DateTime fechaInicio, DateTime fechaFin, int horaInicio, int horaFin, string descripcion, string lugares, string informacionAdicional, Decimal precio, int cupos, int registrados, int agente)
@@ -303,8 +269,8 @@ namespace SOAPServices
 
         public Reserva CrearReserva(int codPaquete, int codCliente, string estado, DateTime fechaReserva)
         {
-            Paquete paqueteExistente = paqueteDAO.Obtener(codPaquete);
-            Cliente clienteExistente = clienteDAO.Obtener(codCliente);
+            Paquete paqueteExistente = PaqueteDAO.Obtener(codPaquete);
+            Cliente clienteExistente = ClienteDAO.Obtener(codCliente);
 
             Reserva reservaACrear = new Reserva()
             {
@@ -322,15 +288,14 @@ namespace SOAPServices
         {
             return ReservaDAO.Obtener(codReserva);
         }
-        public Reserva ModificarReserva(int codReserva, int codPaquete, int codCliente, string estado, DateTime fechaReserva) 
+        public Reserva ModificarReserva(int codigo, int codPaquete, int codCliente, string estado, DateTime fechaReserva) 
         {
-            Reserva reservaExistente = reservaDAO.Obtener(codReserva);
-            Paquete paqueteExistente = paqueteDAO.Obtener(codPaquete);
-            Cliente clienteExistente = clienteDAO.Obtener(codCliente); 
-
+            Cliente clienteExistente = ClienteDAO.Obtener(codCliente); 
+            Paquete paqueteExistente = PaqueteDAO.Obtener(codPaquete);
+           
             Reserva reservaAModificar = new Reserva()
             {
-                CodReserva = codReserva,
+                CodReserva = codigo,
                 Paquete = paqueteExistente,
                 Cliente = clienteExistente,
                 Estado = estado,
