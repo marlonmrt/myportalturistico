@@ -16,6 +16,8 @@ namespace SOAPServicesTest
     {
         
         //[TestMethod]
+
+        //crea bien el paquete
         public void TestCrearPaquete1()
         {
             try {
@@ -66,7 +68,8 @@ namespace SOAPServicesTest
         }
 
                
-        [TestMethod]
+        //prueba el ingrseo de hora inicio mayor que hora final
+        //[TestMethod]
         public void TestProbarHorasCrearPaquete()
         {
 
@@ -85,10 +88,10 @@ namespace SOAPServicesTest
                 {
                     total1 += 1;
                 }
-                //creo paquete
+                
                 DateTime FechaIni = new DateTime(2012, 11, 10);
                 DateTime FechaFin = new DateTime(2012, 11, 20);
-
+                //creo paquete
                 Paquete paq = proxy.CrearPaquete(tp1.CodTipoPaquete, "Semana de Cajamarca", FechaIni, FechaFin, 14, 8, "Un lugar de ensueño a 5 horas de Lima", "Cañete", "al correo informes@gmail.com", 60, 20, 0, ag1.CodAgente);
 
 
@@ -107,6 +110,50 @@ namespace SOAPServicesTest
                 Assert.AreEqual("La hora de fin no puede ser menor que la del inicio", faultEx.Detail.MensajeNegocio);
              
             }catch(Exception e){
+
+                Assert.AreEqual("Operación inválida", e.Message);
+            }
+
+        }
+
+        //prueba el ingreso de hora inicio mayor que hora final
+        [TestMethod]
+        public void TestProbarHorasModificarPaquete()
+        {
+
+            try
+            {
+                //1. Instancia el objeto a probar
+                TourWS.TourServiceClient proxy = new TourWS.TourServiceClient();
+
+                //obtengo un tipo paquete
+                TipoPaquete tp1 = proxy.ObtenerTipoPaquete(1);
+                //obtengo un agente
+                Agente ag1 = proxy.ObtenerAgente(1);
+
+                int codigoPaquete = 1;
+                int horaInicio = 14;  //las 2 de la tarde
+                int horaFinal = 8;  //las 8 de la mañana
+                DateTime FechaIni = new DateTime(2012, 11, 10);
+                DateTime FechaFin = new DateTime(2012, 11, 20);
+                //modifico paquete
+                Paquete paq = proxy.ModificarPaquete(codigoPaquete, tp1.CodTipoPaquete, "Semana de Cajamarca", FechaIni, FechaFin, horaInicio, horaFinal, "Un lugar de ensueño al sur de Ica", "Cañete", "al correo julio@gmail.com", 60, 20, 0, ag1.CodAgente);
+
+                //obtengo paquete
+                Paquete paqObtenido = proxy.ObtenerPaquete(codigoPaquete);
+                //3. Realizar las validaciones de prueba (sobre el resultado)
+
+                Assert.AreEqual(paqObtenido.NombrePaquete, "Semana de Cajamarca");
+                Assert.AreEqual(paqObtenido.FechaInicio, FechaIni);
+                Assert.AreEqual(paqObtenido.FechaFin, FechaFin);
+            }
+            catch (FaultException<TourWS.Error> faultEx)
+            {
+                Assert.AreEqual("La hora de fin no puede ser menor que la del inicio", faultEx.Detail.MensajeNegocio);
+
+            }
+            catch (Exception e)
+            {
 
                 Assert.AreEqual("Operación inválida", e.Message);
             }
