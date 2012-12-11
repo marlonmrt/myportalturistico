@@ -72,7 +72,7 @@ namespace PaqueteTuristicoWeb.Controllers
                 int Cupos = int.Parse(collection["Cupos"]);
                 int Registrados = int.Parse(collection["Registrados"]);
 
-                //se inserta
+                //se insertael paquete turístico
                 proxy.CrearPaquete(codTipoPaquete, NombrePaquete, FechaInicio, FechaFin, HoraInicio, HoraFin, Descripcion, Lugares, InformacionAdicional, Precio, Cupos, Registrados, codAgente);
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Paquete creado";
@@ -92,6 +92,7 @@ namespace PaqueteTuristicoWeb.Controllers
                 ModelState.AddModelError("Error", e.Message);
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
+
             }
            
             return View();
@@ -158,6 +159,7 @@ namespace PaqueteTuristicoWeb.Controllers
                 ModelState.AddModelError("Error", e.Message);
                 //se manda el mensaje para que se vea en pantalla
                 ViewData["mensaje"] = "Error en el ingreso: " + e.Message;
+
             }
 
             return View();
